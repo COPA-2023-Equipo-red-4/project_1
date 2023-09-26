@@ -32,4 +32,4 @@
 
 [contributors-shield]: https://img.shields.io/badge/Contribuidores-11-orange?style=for-the-badge&logo=appveyor
 
-[contributors-url]: https://github.com/Laboratorio-I-G15/laboratorio-1-gestion-proyectos/graphs/contributors
+[contributors-url]: https://github.com/COPA-2023-Equipo-red-4/project_1/graphs/contributors
