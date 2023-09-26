@@ -3,7 +3,7 @@
 <br/>
 <div align="center">
   <a href="https://github.com/COPA-2023-Equipo-red-4/project_1/">
-    <img src="">
+    <img src="https://avatars.githubusercontent.com/u/145063891?s=200&v=4">
   </a>
   <div>
   <h1  align="center">COPA Grupo 4 RED</h1>
@@ -16,9 +16,7 @@
   <div align="left">
    <h2>Tu Mascota</h2>
 </div>
-<div align="center">
-      <img src="" alt="Logo" width="800" height="650">
-  <div>
+
 <div align="left">
   <ul><h2>Integrantes</h2>
     <li>AleprosDev </li>
