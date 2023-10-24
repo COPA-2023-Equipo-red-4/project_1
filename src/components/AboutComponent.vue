@@ -9,8 +9,8 @@
                 </p>
 
                 <div class="d-flex justify-content-around">
-                    <button type="button" class="btn btn-warning fw-bold">Eres donador</button>
-                    <button type="button" class="btn btn-warning fw-bold">Eres Adoptante</button>
+                    <button type="button" class="btn btn-warning fw-bold" @click="SerDonador()">Eres donador</button>
+                    <button type="button" class="btn btn-warning fw-bold" @click="SerAdoptante()">Eres Adoptante</button>
                 </div>
                 
             </div>
@@ -33,6 +33,20 @@
 
     </div>
 </template>
+
+<script>
+export default{
+  name:'AboutComponent',
+  methods: {
+    SerAdoptante(){
+      this.$router.push(`/pets`)
+    },
+    SerDonador(){
+      this.$router.push(`/login`)
+    }
+  },
+}
+</script>
 
 <style scoped>
 .default-generate-a {

@@ -11,12 +11,17 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
             <a class="nav-link" href="#">
-            <router-link to="/">Home</router-link>
+            <router-link to="/">Inicio</router-link>
             </a><!-- <span class="sr-only">(current)</span> -->
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">
-            <router-link to="/about">About</router-link>
+            <router-link to="/about">Acerca</router-link>
+        </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+            <router-link to="/pets">Mascotas</router-link>
         </a>
         </li>
         <li class="nav-item dropdown">

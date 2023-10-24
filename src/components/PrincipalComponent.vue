@@ -6,13 +6,21 @@
         <section>  <a href="#"> <img src="@/assets/perro.jpeg" alt="Perro">    </a>    </section>
         <section>  <a href="#"> <img src="@/assets/gato.jpeg" alt="Gato">      </a>    </section>
         <section>  <a href="#"> <img src="@/assets/conejo.jpeg" alt="Conejo">  </a>    </section>
-        <button> QUIERO ADOPTAR </button>
+        <button @click="QuieroAdoptar()"> QUIERO ADOPTAR </button>
         
         </div>
     </div>
 </template>
 
 <script>
+export default{
+    name:'PrincipalComponent',
+    methods:{
+        QuieroAdoptar(){
+            this.$router.push(`/pets`)
+        }
+    }
+}
 
 
 </script>
