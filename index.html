@@ -10,10 +10,10 @@
 <div id="app">
   <form @submit.prevent="login">
     <label for="username">Username:</label>
-    <input type="text" id="username" v-model="username" required>
+    <input type="text" id="username" v-model="user" required>
     
     <label for="password">Password:</label>
-    <input type="password" id="password" v-model="password" required>
+    <input type="text" id="password" v-model="pass" required>
     
     <button type="submit">Login</button>
   </form>
@@ -30,8 +30,8 @@ new Vue({
   methods: {
     login() {
       const formData = new URLSearchParams();
-      formData.append('user', this.username);
-      formData.append('pass', this.password);
+      formData.append('user', this.user);
+      formData.append('pass', this.pass);
 
 /*
 const requestOptions = {
