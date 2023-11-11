@@ -58,7 +58,8 @@ const requestOptions = {
       };
       
       fetch("https://rafalopez.ar/v1/login", requestOptions)
-        .then(response => response.json())
+    //    .then(response => response.json())
+        .then(response => response.text())
         .then(data => {
           console.log('Respuesta del servidor:', data);
         })
