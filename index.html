@@ -17,6 +17,11 @@
     
     <button type="submit">Login</button>
   </form>
+  <hr>
+  <form @submit.prevent="getUser">
+  <h2>Verifica user</h2>
+    <button type="submit">user</button>
+  </form>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -66,6 +71,25 @@ const requestOptions = {
         .catch(error => {
           console.error('Error:', error);
         });
+    },
+ getUser() {
+            const requestOptions = {
+                method: 'GET',
+                credentials: 'include',
+                redirect: 'follow',
+                mode: 'cors'
+            };
+
+            fetch("https://rafalopez.ar/v1/user", requestOptions)
+                .then(response => {
+                    // Imprimir las cookies de la respuesta
+                    console.log('Cookies de la respuesta:', response.headers.get('Set-Cookie'));
+                    console.log(response);
+                    return response.text();
+                })
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        }
     }
   }
 });
