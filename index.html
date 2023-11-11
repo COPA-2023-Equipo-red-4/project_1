@@ -39,7 +39,7 @@ new Vue({
         },
         body: formData,
       };
-      fetch("https://rafalopez.ar/v1/login2", requestOptions)
+      fetch("https://rafalopez.ar/v1/login", requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log('Respuesta del servidor:', data);
