@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+</head>
+<body>
+
+<div id="app">
+  <form @submit.prevent="login">
+    <label for="username">Username:</label>
+    <input type="text" id="username" v-model="username" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" v-model="password" required>
+    
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    username: '',
+    password: ''
+  },
+  methods: {
+    login() {
+      const formData = new URLSearchParams();
+      formData.append('username', this.username);
+      formData.append('password', this.password);
+       const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData,
+      };
+      fetch("https://rafalopez.ar/v1/login2", requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log('Respuesta del servidor:', data);
+        })
+        .catch(error => {
+
+          console.error('Error:', error);
+        });
+    }
+  }
+});
+</script>
+
+</body>
+</html>
