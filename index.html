@@ -24,14 +24,14 @@
 new Vue({
   el: '#app',
   data: {
-    username: '',
-    password: ''
+    user: '',
+    pass: ''
   },
   methods: {
     login() {
       const formData = new URLSearchParams();
-      formData.append('username', this.username);
-      formData.append('password', this.password);
+      formData.append('user', this.username);
+      formData.append('pass', this.password);
 
 /*
 const requestOptions = {
