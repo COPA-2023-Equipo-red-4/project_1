@@ -24,6 +24,11 @@
             <router-link to="/pets">Mascotas</router-link>
         </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+            <router-link to="/Profile">Mi Perfil</router-link>
+        </a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
