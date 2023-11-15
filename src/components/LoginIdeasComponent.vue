@@ -1,5 +1,8 @@
 <template>
     <div class="pt-5">
+    <div> 
+        
+    </div>
         <h3 class="text-success">Algo que encierre una idea</h3>
 
         <p class="text-success pb-2">Una explicacion del titulo de arriba un poco mas en detalle</p>
