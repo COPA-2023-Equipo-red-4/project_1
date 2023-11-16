@@ -1,7 +1,7 @@
 <template>
     <div class="pt-5">
     <div> 
-        
+
     </div>
         <h3 class="text-success">Algo que encierre una idea</h3>
 
@@ -15,10 +15,17 @@
     </div>
 </template>
 
-<script>
+<script >
+
+
+
     export default {
-        name:'LoginIdeasComponent'
-    }
+        name:'LoginIdeasComponent',
+
+};
+    
+
+
 </script>
 
 <style scoped>

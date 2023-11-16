@@ -2,34 +2,40 @@
   <div>
     <div class="container">
       <div class="row">
+        <div v-if="userData">
         <h2 class="text-light text-start mt-5 mb-5 justify-content-center">
-          {{ user.name }}, bienvenido !
+          {{ userData.nombres }}, bienvenido !
         </h2>
         <a class="btn btn-primary" href="/profiledetail" role="button"
           >Detalles > Actividad
         </a>
-        <!-- Primera columna -->
+        <!-- Primera columna --> 
         <div
           class="col-md-6 justify-content-center align-items-start d-flex mb-3 mt-3 pt-5"
         >
           <div class="card py-3 mt-1" style="width: 18rem">
             <img
-              :src="user.photo"
+              src="../assets/foto-perfil.jpeg"
               class="card-img-top rounded-circle w-50 h-auto mx-auto"
               alt="Foto de usuario"
             />
             <hr class="w-50 h-auto mx-auto" />
+            
             <div class="card-body">
-              <router-link to="/profiledetail"
-                ><h5 class="card-title">
-                  {{ user.name }} {{ user.lastname }}
-                </h5></router-link
-              >
+              <router-link to="/profiledetail">
+                <h5 class="card-title">
+                  {{ userData.nombres }}
+                  <h5>{{ userData.apellido }}</h5>
+                </h5></router-link>
+
               <p class="card-text">
-                Edad: {{ user.age }}<br />
-                Dirección: {{ user.address }}<br />
-                Género: {{ user.gender }}
+                Dirección:
+                Género:
+                Teléfono:
+                e-mail:
+                pais: 
               </p>
+          </div>
             </div>
           </div>
         </div>
@@ -41,8 +47,8 @@
           <div class="card py-3 mt-1" style="width: 18rem">
             <div class="card-body">
               <p class="card-text">
-                Teléfono: 3000000000000000 <br />
-                e-mail: alexandraperez@gmail.com <br />
+
+                
                 Adopción: Perro <br />
                 Fecha: 11-11-2023 <br />
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -59,31 +65,38 @@
 </template>
 
 <script>
-import profilePhoto from "@/assets/foto-perfil.jpeg";
 export default {
   name: "UserProfileComponent",
-  props: {
-    userData: {
-      type: Object,
-      required: true,
-    },
-  },
   data() {
     return {
-      user: {
-        photo: profilePhoto,
-        name: "Alexandra",
-        lastname: "Pérez",
-        age: 25,
-        address: "Detalle de la dirección del usuario",
-        gender: "Femenino",
-      },
+      userData: ' ',
     };
   },
-
-  methods: {},
-};
-</script>
+  mounted() {
+    // Llama al método getUser cuando el componente se monta
+    this.getUser();
+  },
+  methods: {
+    getUser() {
+            const requestOptions = {
+                method: 'GET',
+                credentials: 'include',
+                redirect: 'follow',
+                mode: 'cors'
+            };
+            fetch("/v1/user/perfil", requestOptions)
+                .then(response => {
+                    // Imprimir las cookies de la respuesta
+                    console.log(response.headers);
+                    return response.json;
+                })
+                // Almacena los datos del usuario en la propiedad userData
+                .then(console.log(this.userData))
+                .catch(error => console.log("error", error));
+        }
+    }
+  };
+</script> 
 
 <style scoped>
 a {

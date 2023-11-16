@@ -1,9 +1,14 @@
 <template>
-    <div>
 
-        <nav class="navbar navbar-expand-lg bg-success bg-gradient">
+    <div id="navbar">
+
+        <nav class="navbar navbar-expand-md bg-success bg-gradient" >
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">Navbar</a>
+    <nav class="p-0">
+      <div class="pe-50px">
+        <img src="../assets/logo-no-bg.png" alt="logo sin bg" class="logo">
+      </div>
+    </nav>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,11 +17,11 @@
         <li class="nav-item">
             <a class="nav-link" href="#">
             <router-link to="/">Inicio</router-link>
-            </a><!-- <span class="sr-only">(current)</span> -->
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">
-            <router-link to="/about">Acerca</router-link>
+            <router-link to="/about">Acerca del proyecto</router-link>
         </a>
         </li>
         <li class="nav-item">
@@ -31,10 +36,11 @@
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-        <a class="me-2 p-2" href="#">
-            <router-link to="/login">Log In</router-link>
+        
+        <a class="nav-link" href="#">
+            <router-link to="/login">Login</router-link>
         </a>
+                
         <button class="btn btn-warning rounded-pill text-light" type="submit">Empieza ya</button>
       </form>
     </div>
@@ -46,10 +52,35 @@
 
 <script>
     export default {
-        
+      name: 'NavBarComponent',   
+      
+      
+
+    data() {
+        return {
+            email: '',
+            password: '',
+            isAuthenticated: false,
+        };
+    },
+
+    methods: {
+    
+    
     }
+
+  }
+
 </script>
 
 <style scoped>
+.logo {
+  background: none;
+  width: 100px;
+  height: 50px;
+}
+#navbar {
+  display: contents;
 
+}
 </style>

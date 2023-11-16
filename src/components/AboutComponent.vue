@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row pt-5">
             <div class="col-md-6">
-                <h1 class="text-start text-white fw-bold">Algo se escribe aca que llame la atencion al publico que visite
+                <h1 class="text-start text-white fw-bold">Adoptar es un acto de amor puro
                 </h1>
-                <p class="text-start text-white" >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae animi obcaecati alias neque impedit,
-                    quod in dolorem nisi laudantium possimus cum. Nobis maiores ad harum ipsam minus perferendis, eaque cum?
+                <p class="text-start text-white" >¿Sabias que hay un animal en situación de calle por cada hora? Vos podés ser el cambio
+                  que necesita el mundo. 
                 </p>
 
                 <div class="d-flex justify-content-around">
@@ -71,7 +71,7 @@ export default{
   width: 382px;
 }
 
- .gato {
+.gato {
   height: 397px;
   left: 950px;
   object-fit: cover;
@@ -84,7 +84,7 @@ export default{
   height: 514px;
   left: 49rem;
   object-fit: cover;
- position: absolute;
+  position: absolute;
   top: 131px;
   width: 472px;
 

@@ -16,12 +16,15 @@
                 <p class="text-start">
                     <a class="text-black fw-semibold" href="">¿Olvidaste tu contraseña? </a>
                 </p>
-                <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                
             </div>
             <div class="d-grid gap-2 pb-5">
                 <button class="btn btn-primary text-white rounded-pill"
-                type="button" id="buttonUser" @click="getUser"> Logueate </button>
+                type="button" id="buttonUser" @click="sendLogin"> Inicia sesión
+                </button>
+                
+
+
             </div>
         </form>
     </div>
@@ -37,7 +40,7 @@ export default {
     data() {
         return {
             email: '',
-            password: ''
+            password: '',
         };
     },
 
@@ -45,6 +48,7 @@ export default {
 
 
         sendLogin() {
+            
             const formdata = new FormData();
             formdata.append("user", this.email);
             formdata.append("pass", this.password);
@@ -56,13 +60,13 @@ export default {
                 redirect: 'follow',
                 mode: 'cors'
             }
-            fetch("https://rafalopez.ar/v1/user/login", requestOptions)
+            fetch("/v1/user/login", requestOptions)
                 .then(response => {
                     // Imprimir las cookies de la respuesta
                     console.log('Cookies de la respuesta:', response.headers);
-                    return response.text();
+                    this.$router.push('/profile')
+
                 })
-                .then(result => console.log(result))
                 .catch(error => console.log('error', error));
         },
 
@@ -73,7 +77,7 @@ export default {
                 redirect: 'follow',
                 mode: 'cors'
             };
-            fetch("https://rafalopez.ar/v1/user/login", requestOptions)
+            fetch("/v1/user/perfil", requestOptions)
                 .then(response => {
                     // Imprimir las cookies de la respuesta
 
@@ -82,6 +86,10 @@ export default {
                 })
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));
+        },
+
+        isAuthenticated() {
+
         }
     }
 };
@@ -103,3 +111,4 @@ a {
     font-size: small;
 }
 </style>
+

@@ -1,7 +1,6 @@
 <template>
   <div class="about vh-100">
     <NavBarComponent/>
-    <h1>This is an about page</h1>
     <AboutComponent/>
 
   </div>
