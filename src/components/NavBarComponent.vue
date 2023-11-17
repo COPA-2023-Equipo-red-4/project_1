@@ -41,7 +41,9 @@
             <router-link to="/login">Login</router-link>
         </a>
                 
-        <button class="btn btn-warning rounded-pill text-light" type="submit">Empieza ya</button>
+        <a class="nav-link" href="#">
+            <router-link to="/register">Registrate</router-link>
+        </a>
       </form>
     </div>
   </div>
