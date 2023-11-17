@@ -24,27 +24,27 @@
 
     <div class="form-group input-group">
     <div class="input-group-prepend">
-		<span class="input-group-text"> <img src="../assets/person-fill.svg" alt="icon-person"> </span>
+		<span class="input-group-text"> <img src="../assets/envelope-fill.svg" alt="icon-person"> </span>
 		</div>
         <input name="" class="form-control" placeholder="Dirección de email" type="email">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     <div class="input-group-prepend">
-		<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		<span class="input-group-text"> <img src="../assets/telephone-fill.svg" alt="icon-person"> </span>
 		</div>
-    <input name="" class="form-control" placeholder="Phone number" type="text">
+    <input name="" class="form-control" placeholder="Número de teléfono" type="text">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     <div class="input-group-prepend">
-		<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		<span class="input-group-text"> <img src="../assets/key-fill.svg" alt="icon-person"> </span>
 		</div>
-        <input class="form-control" placeholder="Create password" type="password">
+        <input class="form-control" placeholder="Crear contraseña" type="password">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     <div class="input-group-prepend">
-		<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		<span class="input-group-text"> <img src="../assets/key-fill.svg" alt="icon-person"> </span>
 		</div>
-        <input class="form-control" placeholder="Repeat password" type="password">
+        <input class="form-control" placeholder="Repetir contraseña" type="password">
     </div> <!-- form-group// -->                                      
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Crea una cuenta  </button>
