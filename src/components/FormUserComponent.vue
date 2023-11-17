@@ -10,23 +10,23 @@
 	<form>
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
-		<span class="input-group-text"> <i class="bi bi-person-fill"></i> </span>
+		<span class="input-group-text"> <img src="../assets/person-fill.svg" alt="icon-person"> </span>
 		</div>
         <input name="" class="form-control" placeholder="Nombre" type="text"> 
     </div>
 
     <div class="form-group input-group">
 		<div class="input-group-prepend">
-		<span class="input-group-text"> <i class="bi bi-person-fill"></i> </span>
+		<span class="input-group-text"> <img src="../assets/person-fill.svg" alt="icon-person"> </span>
 		</div>
         <input name="" class="form-control" placeholder="Apellido" type="text"> 
     </div>
 
     <div class="form-group input-group">
     <div class="input-group-prepend">
-		<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		<span class="input-group-text"> <img src="../assets/person-fill.svg" alt="icon-person"> </span>
 		</div>
-        <input name="" class="form-control" placeholder="Email address" type="email">
+        <input name="" class="form-control" placeholder="Dirección de email" type="email">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     <div class="input-group-prepend">
@@ -70,8 +70,5 @@
 
 <style scoped>
 
-.bi biperson-fill {
-
-}
 
 </style>
