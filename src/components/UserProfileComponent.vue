@@ -2,31 +2,30 @@
   <div>
     <div class="container">
       <div class="row">
-        <div v-if="userData">
-        <h2 class="text-light text-start mt-5 mb-5 justify-content-center">
-          {{ userData.nombres }}, bienvenido !
-        </h2>
-        <a class="btn btn-primary" href="/profiledetail" role="button"
-          >Detalles > Actividad
-        </a>
-        <!-- Primera columna --> 
-        <div
-          class="col-md-6 justify-content-center align-items-start d-flex mb-3 mt-3 pt-5"
-        >
-          <div class="card py-3 mt-1" style="width: 18rem">
-            <img
-              src="../assets/foto-perfil.jpeg"
-              class="card-img-top rounded-circle w-50 h-auto mx-auto"
-              alt="Foto de usuario"
-            />
-            <hr class="w-50 h-auto mx-auto" />
-            
-            <div class="card-body">
-              <router-link to="/profiledetail">
-                <h5 class="card-title">
-                  {{ userData.nombres }}
-                  <h5>{{ userData.apellido }}</h5>
-                </h5></router-link>
+          <h2 class="text-light text-start mt-5 mb-5 justify-content-center">
+            {{ userData.nombres }}, bienvenido !
+          </h2>
+          <a class="btn btn-primary" href="/profiledetail" role="button"
+            >Detalles > Actividad
+          </a>
+          <!-- Primera columna --> 
+          <div
+            class="col-md-6 justify-content-center align-items-start d-flex mb-3 mt-3 pt-5"
+          >
+            <div class="card py-3 mt-1" style="width: 18rem">
+              <img
+                src="../assets/foto-perfil.jpeg"
+                class="card-img-top rounded-circle w-50 h-auto mx-auto"
+                alt="Foto de usuario"
+              />
+              <hr class="w-50 h-auto mx-auto" />
+              
+              <div class="card-body">
+                <router-link to="/profiledetail">
+                  <h5 class="card-title">
+                    {{ userData.nombres }}
+                    <h5>{{ userData.apellido }}</h5>
+                  </h5></router-link>
 
               <p class="card-text">
                 Dirección:
@@ -38,7 +37,6 @@
           </div>
             </div>
           </div>
-        </div>
 
         <!-- Segunda columna -->
         <div
