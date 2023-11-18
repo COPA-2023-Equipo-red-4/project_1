@@ -66,7 +66,7 @@ export default {
   name: "UserProfileComponent",
   data() {
     return {
-      usuario: { },
+      usuario: null,
     };
   },
   mounted() {
