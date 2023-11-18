@@ -39,13 +39,44 @@
 		<span class="input-group-text"> <img src="../assets/key-fill.svg" alt="icon-person"> </span>
 		</div>
         <input class="form-control" placeholder="Crear contraseña" type="password">
+
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     <div class="input-group-prepend">
 		<span class="input-group-text"> <img src="../assets/key-fill.svg" alt="icon-person"> </span>
 		</div>
         <input class="form-control" placeholder="Repetir contraseña" type="password">
-    </div> <!-- form-group// -->                                      
+
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    <div class="input-group-prepend">
+		<span class="input-group-text"> <img src="../assets/key-fill.svg" alt="icon-person"> </span>
+		</div>
+        <input class="form-control" placeholder="Fecha de nacimiento" type="date">
+
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    <div class="input-group-prepend">
+		<span class="input-group-text"> <img src="../assets/key-fill.svg" alt="icon-person"> </span>
+		</div>
+        <input class="form-control" placeholder="Domicilio" type="text">
+
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    <div class="input-group-prepend">
+		<span class="input-group-text"> <img src="../assets/key-fill.svg" alt="icon-person"> </span>
+		</div>
+        <input class="form-control" placeholder="Ciudad" type="text">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+    <select class="form-select" aria-label="Default select example">
+        <option selected>Elige tu sexo</option>
+        <option value="1">M</option>
+        <option value="2">F</option>
+        </select>
+    </div>             
+
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Crea una cuenta  </button>
     </div> <!-- form-group// -->      
@@ -54,8 +85,10 @@
             <router-link to="/login">Log In</router-link>
         </a>
     </p>                                                                 
-</form>
+    </form>
 </article>
+
+
 </div> <!-- card.// -->
 
 </div> 
