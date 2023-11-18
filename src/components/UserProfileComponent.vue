@@ -2,8 +2,8 @@
   <div>
     <div class="container">
       <div class="row">
-          <h2 class="text-light text-start mt-5 mb-5 justify-content-center">
-            {{ usuario.nombres }}, HOla, te estabamos esperando !
+          <h2 class="text-light text-start mt-5 mb-5 justify-content-center" v-if="datos">
+            {{ datos.nombres }}, HOla, te estabamos esperando !
           </h2>
           <a class="btn btn-primary" href="/profiledetail" role="button"
             >Detalles > Actividad
@@ -23,8 +23,7 @@
               <div class="card-body">
                 <router-link to="/profiledetail">
                   <h5 class="card-title">
-                    {{ usuario.nombres }}
-                    <h5>{{ usuario.apellido }}</h5>
+                    <h5></h5>
                   </h5></router-link>
                 </div>
               <p class="card-text">
@@ -64,12 +63,14 @@
 <script>
 export default {
   name: "UserProfileComponent",
+
+
   data() {
     return {
-      usuario: null,
+      datos: null,
     };
   },
-  mounted() {
+      mounted() {
     // Llama a tu API para obtener los datos del usuario
     this.getUser();
     },
@@ -84,9 +85,9 @@ export default {
             };
             fetch("https://rafalopez.ar/v1/user/perfil", requestOptions)
                 .then(res => res.json())
-                .then(response => console.log(response) )
                 .then(response => {
-                  this.usuario = response;
+                  console.log('Respuesta de la API', response);
+                  this.datos = response;
                 })
                 .catch(error => console.log("Error al obtener datos del usuario", error));
         },
