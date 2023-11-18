@@ -60,7 +60,7 @@ const requestOptions = {
     redirect: 'follow',
     mode: 'cors'
 }
-        fetch("/v1/user/login", requestOptions)
+        fetch("https://rafalopez.ar/v1/user/login", requestOptions)
             .then(response => {
 
                 const cookies = response.headers.get('Set-Cookie');
@@ -92,7 +92,7 @@ const requestOptions = {
                 redirect: 'follow',
                 mode: 'cors'
             };
-            fetch("/v1/user/perfil", requestOptions)
+            fetch("https://rafalopez.ar/v1/user/perfil", requestOptions)
                 .then(response => {
                     // Imprimir las cookies de la respuesta
 
