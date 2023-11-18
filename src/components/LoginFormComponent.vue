@@ -48,26 +48,41 @@ export default {
 
 
         sendLogin() {
-            
-            const formdata = new FormData();
-            formdata.append("user", this.email);
-            formdata.append("pass", this.password);
 
-            const requestOptions = {
-                method: 'POST',
-                body: formdata,
-                credentials: 'include',
-                redirect: 'follow',
-                mode: 'cors'
-            }
-            fetch("/v1/user/login", requestOptions)
-                .then(response => {
-                    // Imprimir las cookies de la respuesta
-                    console.log('Cookies de la respuesta:', response.headers);
-                    this.$router.push('/profile')
+const formdata = new FormData();
+formdata.append("user", this.email);
+formdata.append("pass", this.password);
 
-                })
-                .catch(error => console.log('error', error));
+const requestOptions = {
+    method: 'POST',
+    body: formdata,
+    credentials: 'include',
+    redirect: 'follow',
+    mode: 'cors'
+}
+        fetch("/v1/user/login", requestOptions)
+            .then(response => {
+
+                const cookies = response.headers.get('Set-Cookie');
+                console.log('Cookies:', cookies);
+
+
+                if (response.ok) {
+
+                    return response.json();
+                } else {
+
+                    throw new Error('Error en la solicitud');
+                }
+            })
+            .then(responseJson => {
+
+                console.log('Response ', responseJson);
+
+
+                this.$router.push('/profile');
+            })
+            .catch(error => console.error('Error:', error));
         },
 
         getUser() {
