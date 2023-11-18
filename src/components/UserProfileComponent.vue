@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
           <h2 class="text-light text-start mt-5 mb-5 justify-content-center">
-            {{ usuario.nombres }}, bienvenido !
+            {{ usuario.nombres }}, HOla, te estabamos esperando !
           </h2>
           <a class="btn btn-primary" href="/profiledetail" role="button"
             >Detalles > Actividad
@@ -66,15 +66,14 @@ export default {
   name: "UserProfileComponent",
   data() {
     return {
-      userData: null,
+      usuario: { },
     };
   },
   mounted() {
     // Llama a tu API para obtener los datos del usuario
-    this.obtenerDatosDelUsuario().then(usuario => {
-      this.usuario = usuario;
-    });
-  },
+    this.getUser();
+    },
+
   methods: {
     getUser() {
             const requestOptions = {
@@ -86,7 +85,10 @@ export default {
             fetch("https://rafalopez.ar/v1/user/perfil", requestOptions)
                 .then(res => res.json())
                 .then(response => console.log(response) )
-                .catch(error => console.log("error", error));
+                .then(response => {
+                  this.usuario = response;
+                })
+                .catch(error => console.log("Error al obtener datos del usuario", error));
         },
     }
   };
