@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
           <h2 class="text-light text-start mt-5 mb-5 justify-content-center">
-            {{ userData.nombres }}, bienvenido !
+            {{ usuario.nombres }}, bienvenido !
           </h2>
           <a class="btn btn-primary" href="/profiledetail" role="button"
             >Detalles > Actividad
@@ -23,10 +23,10 @@
               <div class="card-body">
                 <router-link to="/profiledetail">
                   <h5 class="card-title">
-                    {{ userData.nombres }}
-                    <h5>{{ userData.apellido }}</h5>
+                    {{ usuario.nombres }}
+                    <h5>{{ usuario.apellido }}</h5>
                   </h5></router-link>
-
+                </div>
               <p class="card-text">
                 Dirección:
                 Género:
@@ -36,7 +36,6 @@
               </p>
           </div>
             </div>
-          </div>
 
         <!-- Segunda columna -->
         <div
@@ -67,12 +66,14 @@ export default {
   name: "UserProfileComponent",
   data() {
     return {
-      userData: ' ',
+      userData: null,
     };
   },
   mounted() {
-    // Llama al método getUser cuando el componente se monta
-    this.getUser();
+    // Llama a tu API para obtener los datos del usuario
+    this.obtenerDatosDelUsuario().then(usuario => {
+      this.usuario = usuario;
+    });
   },
   methods: {
     getUser() {
@@ -80,18 +81,13 @@ export default {
                 method: 'GET',
                 credentials: 'include',
                 redirect: 'follow',
-                mode: 'cors'
+                mode: 'cors',
             };
-            fetch("/v1/user/perfil", requestOptions)
-                .then(response => {
-                    // Imprimir las cookies de la respuesta
-                    console.log(response.headers);
-                    return response.json;
-                })
-                // Almacena los datos del usuario en la propiedad userData
-                .then(console.log(this.userData))
+            fetch("https://rafalopez.ar/v1/user/perfil", requestOptions)
+                .then(res => res.json())
+                .then(response => console.log(response) )
                 .catch(error => console.log("error", error));
-        }
+        },
     }
   };
 </script> 
