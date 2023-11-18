@@ -1,63 +1,46 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row">
-          <h2 class="text-light text-start mt-5 mb-5 justify-content-center" v-if="datos">
-            {{ datos.nombres }}, HOla, te estabamos esperando !
+<div v-if="datos">
+  <div v-for="d in datos" :key="d.id"></div>
+          <h2 class="text-light text-start mt-5 mb-5 justify-content-center">
+            {{ datos.nombres }}, bienvenido !
           </h2>
+
           <a class="btn btn-primary" href="/profiledetail" role="button"
             >Detalles > Actividad
           </a>
+
           <!-- Primera columna --> 
-          <div
-            class="col-md-6 justify-content-center align-items-start d-flex mb-3 mt-3 pt-5"
-          >
-            <div class="card py-3 mt-1" style="width: 18rem">
-              <img
-                src="../assets/foto-perfil.jpeg"
+          <div class="row justify-content-evenly mb-3 mt-3">
+            <div class="col-4">
+              <div class="card py-3 mt-1">
+                <img :src="`https://rafalopez.ar/img/img_users/3.jpg`"
                 class="card-img-top rounded-circle w-50 h-auto mx-auto"
                 alt="Foto de usuario"
-              />
-              <hr class="w-50 h-auto mx-auto" />
-              
-              <div class="card-body">
-                <router-link to="/profiledetail">
-                  <h5 class="card-title">
-                    <h5></h5>
-                  </h5></router-link>
-                </div>
-              <p class="card-text">
-                Dirección:
-                Género:
-                Teléfono:
-                e-mail:
-                pais: 
-              </p>
-          </div>
+                />
+                <p class="card-text" v-if="datos">
+                Dirección: {{ datos.domicilio }}
+                Género: 
+                Teléfono: {{ datos.telefono }}
+                e-mail: {{datos.email}}
+                pais: {{ datos.email }}
+                </p>
             </div>
-
-        <!-- Segunda columna -->
-        <div
-          class="col-md-6 justify-content-center align-items-end d-flex mb-3 mt-3 pt-5"
-        >
-          <div class="card py-3 mt-1" style="width: 18rem">
-            <div class="card-body">
+            </div>
+          <!-- Segunda columna -->
+            <div class="col-4">
+              <div class="card py-3 mt-1">
+              <div class="card-body">
               <p class="card-text">
-
-                
                 Adopción: Perro <br />
                 Fecha: 11-11-2023 <br />
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Aliquid suscipit adipisci quae ut blanditiis eius nemo doloribus
-                animi dolorum, laboriosam, delectus temporibus, beatae laborum
-                placeat ratione hic nisi itaque dolore.
               </p>
+              </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+
+        
 </template>
 
 <script>
