@@ -17,13 +17,16 @@
                 class="card-img-top rounded-circle w-50 h-auto mx-auto"
                 alt="Foto de usuario"
                 />
-                <p class="card-text" v-if="datos">
-                Dirección: {{ datos.domicilio }}
-                Género: 
-                Teléfono: {{ datos.telefono }}
-                e-mail: {{datos.email}}
-                pais: {{ datos.email }}
-                </p>
+                <div class="card-text" v-if="datos">
+                <lu>
+                <li>Dirección: {{ datos.domicilio }} </li>
+                <li> Género: </li> 
+                <li> Teléfono: {{ datos.telefono }} </li>
+                <li> e-mail: {{datos.email}} </li>
+                <li> pais: {{ datos.email }} </li>
+                </lu>
+                </div>
+
             </div>
             </div>
           <!-- Segunda columna -->
@@ -31,7 +34,7 @@
               <div class="card py-3 mt-1">
               <div class="card-body">
               <p class="card-text">
-                Adopción: Perro <br />
+                Adopción: Perro mastodonte<br />
                 Fecha: 11-11-2023 <br />
               </p>
               </div>

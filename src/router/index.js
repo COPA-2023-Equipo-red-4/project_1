@@ -6,6 +6,7 @@ import PetsView from '../views/PetsView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import ProfiledetailView from '../views/ProfiledetailView.vue'
 import RegisterView from '../views/RegisterView.vue'
+import MascotaDetailView from '../views/MascotaDetailView.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/profiledetail',
     name: 'profiledetail',
     component: ProfiledetailView
+  },
+  {
+    path: '/MascotaProfile',
+    name: 'MascotaProfile',
+    component: MascotaDetailView
   },
 ]
 
