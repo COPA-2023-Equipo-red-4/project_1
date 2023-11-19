@@ -5,6 +5,7 @@
 
     </div>
 </template>
+
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import MascotaProfileComponent from '@/components/MascotaProfileComponent.vue';

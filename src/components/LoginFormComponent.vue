@@ -68,23 +68,18 @@ const requestOptions = {
 
 
                 if (response.ok) {
-
                     return response.json();
                 } else {
-
                     throw new Error('Error en la solicitud');
                 }
             })
             .then(responseJson => {
-
                 console.log('Response ', responseJson);
-
-
                 this.$router.push('/profile');
             })
             .catch(error => console.error('Error:', error));
         },
-
+        
         getUser() {
             const requestOptions = {
                 method: 'GET',

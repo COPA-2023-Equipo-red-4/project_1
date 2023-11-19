@@ -12,45 +12,82 @@
                                 <!-- Sign In Form -->
                                 <form>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput"
-                                            placeholder="nombre">
+                                        <input type="text" class="form-control" id="nombres" v-model="nombres" 
+                                            placeholder="nombre" required>
                                         <label for="floatingInput">Nombre</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput"
-                                            placeholder="nombre">
+                                        <input type="text" class="form-control" id="apellidos" placeholder="apellido"
+                                            v-model="apellidos" required>
                                         <label for="floatingInput">Apellido</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput"
-                                            placeholder="telefono">
+                                        <input type="text" class="form-control" id="telefono" placeholder="telefono"
+                                            v-model="telefono">
                                         <label for="floatingInput">Telefono</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="date" class="form-control" id="floatingInput"
-                                            placeholder="fechaDeNacimiento">
+                                        <input type="date" class="form-control" id="fecha_nacimiento"
+                                            placeholder="fechaDeNacimiento" v-model="fecha_nacimiento" required>
                                         <label for="floatingInput">Fecha de nacimiento</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput"
-                                            placeholder="domicilio">
+                                        <input type="text" class="form-control" id="domicilio" placeholder="domicilio"
+                                            v-model="domicilio" required>
                                         <label for="floatingInput">Domicilio</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">
+                                        <input type="text" class="form-control" id="ciudad" placeholder="ciudad"
+                                            v-model="ciudad" required>
+                                        <label for="floatingInput">Ciudad</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais" required>
+                                        <label for="floatingInput">pais</label>
+                                    </div>
+
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                        v-model="sexo" required>
+                                        <option selected>Sexo</option>
+                                        <option value="F">Femenino</option>
+                                        <option value="M">masculino</option>
+                                    </select>
+
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                        v-model="genero">
+                                        <option selected>Sexo</option>
+                                        <option value="F">Femenino</option>
+                                        <option value="M">masculino</option>
+                                        <option value="X">Otros</option>
+                                    </select>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="email" placeholder="name@example.com"
+                                            v-model="email" required>
                                         <label for="floatingInput">Email</label>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Foto</label>
+                                        <input class="form-control" type="file" id="formFile" v-on:change="foto">
                                     </div>
 
                                     <div class="form-floating mb-3">
                                         <input type="password" class="form-control" id="floatingPassword"
-                                            placeholder="Password">
+                                            placeholder="Contraseña" v-model="password" required>
                                         <label for="floatingPassword">Contraseña</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="floatingPassword"
+                                            placeholder="confirmar contraseña" v-model="confirmPassword" required>
+                                        <label for="floatingPassword">Confirmar contraseña</label>
                                     </div>
 
                                     <div class="form-check mb-3">
@@ -80,8 +117,52 @@
 
 <script>
 export default {
-    name: "FormUserComponent"
-};
+    name: "FormUserComponent",
+
+    methods: {
+        submitForm() {
+            // Aquí puedes enviar los datos del formulario a tu API
+            const formData = {
+                nombre: this.nombre,
+                apellido: this.apellido,
+                email: this.email,
+                telefono: this.telefono,
+                password: this.password,
+                confirmPassword: this.confirmPassword,
+                fechaNacimiento: this.fechaNacimiento,
+                domicilio: this.domicilio,
+                ciudad: this.ciudad,
+                sexo: this.sexo,
+                genero: this.genero,
+            };
+
+            const requestOptions = {
+                method: 'POST',
+                body: formData,
+                credentials: 'include',
+                redirect: 'follow',
+                mode: 'cors'
+
+            }
+            fetch("https://rafalopez.ar/v1/user/create", requestOptions)
+            .then(response => {
+                const cookies = response.headers.get('Set-Cookie');
+                console.log('Cookies:', cookies)
+                
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Error en la solicitud');
+                }
+            })
+            .then(responseJson => {
+                console.log('Response ', responseJson);
+                this.$router.push('/profile');
+            })
+            .catch(error => console.error('Error:', error));
+        },
+    }
+}
 </script>
 
 <style scoped>
