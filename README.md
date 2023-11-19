@@ -1,16 +1,24 @@
 # project_1
-Registro usuario https://rafalopez.ar/v1/user/register
-endpoint form data
-nombres
-apellido
-email
-telefono
-fecha_nacimiento
-pass
-pass_recovery
-domicilio
-ciudad
-pais
-sexo
-genero
-foto(file)
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
