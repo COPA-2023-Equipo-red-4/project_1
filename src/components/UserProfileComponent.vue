@@ -13,7 +13,7 @@
           <div class="row justify-content-evenly mb-3 mt-3">
             <div class="col-4">
               <div class="card py-3 mt-1">
-                <img :src="`https://rafalopez.ar/img/img_users/3.jpg`"
+                <img :src="`${buildImageUrl(datos.foto)}`"
                 class="card-img-top rounded-circle w-50 h-auto mx-auto"
                 alt="Foto de usuario"
                 />
@@ -74,6 +74,10 @@ export default {
                 })
                 .catch(error => console.log("Error al obtener datos del usuario", error));
         },
+        buildImageUrl(relativePath) {
+      // Construir la URL completa de la imagen
+      return `https://rafalopez.ar${relativePath}`;
+    },
     }
   };
 </script> 
