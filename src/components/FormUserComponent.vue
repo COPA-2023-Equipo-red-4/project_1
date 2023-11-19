@@ -90,7 +90,7 @@ export default {
 }
 
 .bg-image {
-    background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
+    background-image: url('../assets/cutedog_form_registro.jpg');
     background-size: cover;
     background-position: center;
 }
