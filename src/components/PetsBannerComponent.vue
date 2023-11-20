@@ -1,34 +1,34 @@
 <template>
+    <div>
+        <div class="banner">
+            <h1>El texto importa</h1>
+        </div>
 
-<div class="banner">
-    <img src="../assets/animation-pet-banner.gif" alt="imagen">
-    
-</div>
-<h1>El texto importa</h1>
+
+
+    </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+
+}
 </script>
 
 <style  scoped>
-
 .banner {
-    background-color: #ffffff; /* Cambia el color según tus preferencias */
+    background-color: #ffffff;
+    /* Cambia el color según tus preferencias */
     text-align: center;
     flex: auto;
-}
-
-.banner img {
     max-width: 100%;
     display: flex;
+    background-image:
+        linear-gradient(to bottom, #fff 0%, 49%, #248f60 100%);
 }
 
 h1 {
-    margin-bottom: 100px;
-    margin-top: -100px;
+    display: flex;
+    -ms-flex-align:center ;
 }
-
 </style>

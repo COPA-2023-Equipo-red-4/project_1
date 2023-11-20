@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'AboutComponent',
+  name: 'LandingComponent',
   data() {
     return {
       fadeInActive: false,

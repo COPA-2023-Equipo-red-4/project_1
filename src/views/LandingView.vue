@@ -1,17 +1,17 @@
 <template>
   <div class="about vh-100">
-    <AboutComponent/>
+    <LandingComponent></LandingComponent>
 
   </div>
   
 </template>
 <script>
-import AboutComponent from '@/components/AboutComponent.vue';
+import LandingComponent from '@/components/LandingComponent.vue';
 
 export default{
-  name: 'AboutView',
+  name: 'LandingView',
   components:{
-    AboutComponent,
+    LandingComponent,
     }
 }
 </script>
