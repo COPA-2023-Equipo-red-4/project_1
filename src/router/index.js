@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AboutView from '../views/AboutView.vue'
+import LandingView from '../views/LandingView.vue'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import PetsView from '../views/PetsView.vue'
@@ -9,15 +9,16 @@ import RegisterView from '../views/RegisterView.vue'
 import MascotaDetailView from '../views/MascotaDetailView.vue'
 
 const routes = [
+
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'landing',
+    component: LandingView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: '/home',
+    name: 'home',
+    component: HomeView
   },
   {
     path: '/login',

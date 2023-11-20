@@ -94,7 +94,7 @@
 
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Foto</label>
-                                        <input class="form-control" type="file" v-on:change="foto">
+                                        <input class="form-control" type="file" @change="handleFileChange">
                                     </div>
 
                                     <div class="form-floating mb-3">
@@ -171,6 +171,7 @@ export default {
             formdata.append("genero", this.genero);
             formdata.append("foto", this.foto);
 
+
             const requestOptions = {
                 method: 'POST',
                 body: formdata,
@@ -198,6 +199,8 @@ export default {
         handleFileChange(event) {
             this.foto = event.target.files[0];
         },
+
+
 
     }
 }
