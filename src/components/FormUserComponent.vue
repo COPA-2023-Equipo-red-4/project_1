@@ -19,7 +19,7 @@
 
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="apellidos" placeholder="apellido"
-                                            v-model="apellidos" required>
+                                            v-model="apellido" required>
                                         <label for="floatingInput">Apellido</label>
                                     </div>
 
@@ -71,20 +71,20 @@
 
                                     <h4>Indica tu Género</h4>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="Masculino" v-model="sexo"
+                                        <input class="form-check-input" type="radio" id="Masculino" v-model="genero"
                                             value="M">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Masculino
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="Femenino" v-model="sexo" value="F">
+                                        <input class="form-check-input" type="radio" id="Femenino" v-model="genero" value="F">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Femenino
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="Otros" v-model="sexo" value="X">
+                                        <input class="form-check-input" type="radio" id="Otros" v-model="genero" value="X">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Otros
                                         </label>
@@ -103,7 +103,7 @@
 
                                     <div class="form-floating mb-3">
                                         <input type="password" class="form-control" id="floatingPassword"
-                                            placeholder="Contraseña" v-model="password" required>
+                                            placeholder="Contraseña" v-model="pass" required>
                                         <label for="floatingPassword">Contraseña</label>
                                     </div>
 
@@ -122,7 +122,7 @@
 
                                     <div class="d-grid">
                                         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                                            type="submit">Registrate</button>
+                                            type="submit" @click="submitForm"> Registrate </button>
                                         <div class="text-center">
                                             <a class="small" href="#">Olvidaste tu contraseña?</a>
                                         </div>
@@ -141,6 +141,24 @@
 <script>
 export default {
     name: "FormUserComponent",
+    data() {
+        return {
+            // Inicializa las propiedades del formulario
+            nombres: '',
+            apellido: '',
+            email: '',
+            telefono: '',
+            pass: '',
+            confirmPassword: '',
+            fecha_nacimiento: '',
+            domicilio: '',
+            ciudad: '',
+            pais: '',
+            sexo: 'Elige tu sexo',
+            genero: 'Elige tu genero',
+            foto: '',
+        };
+    },
 
     methods: {
         submitForm() {
@@ -150,13 +168,15 @@ export default {
                 apellido: this.apellido,
                 email: this.email,
                 telefono: this.telefono,
-                password: this.password,
+                pass: this.password,
                 confirmPassword: this.confirmPassword,
-                fechaNacimiento: this.fechaNacimiento,
+                fecha_nacimiento: this.fecha_nacimiento,
                 domicilio: this.domicilio,
                 ciudad: this.ciudad,
+                pais: this.pais,
                 sexo: this.sexo,
                 genero: this.genero,
+                foto: this.foto,
             };
 
             const requestOptions = {
@@ -180,10 +200,15 @@ export default {
                 })
                 .then(responseJson => {
                     console.log('Response ', responseJson);
-                    this.$router.push('/profile');
+                    // this.$router.push('/profile');
                 })
                 .catch(error => console.error('Error:', error));
         },
+
+        handleFileChange(event) {
+        this.foto = event.target.files[0];
+    },
+
     }
 }
 </script>
