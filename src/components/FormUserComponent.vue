@@ -12,7 +12,7 @@
                                 <!-- Sign In Form -->
                                 <form>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nombres" v-model="nombres" 
+                                        <input type="text" class="form-control" id="nombres" v-model="nombres"
                                             placeholder="nombre" required>
                                         <label for="floatingInput">Nombre</label>
                                     </div>
@@ -48,24 +48,47 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais" required>
+                                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais"
+                                            required>
                                         <label for="floatingInput">pais</label>
                                     </div>
 
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example"
-                                        v-model="sexo" required>
-                                        <option selected>Sexo</option>
-                                        <option value="F">Femenino</option>
-                                        <option value="M">masculino</option>
-                                    </select>
 
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example"
-                                        v-model="genero">
-                                        <option selected>Sexo</option>
-                                        <option value="F">Femenino</option>
-                                        <option value="M">masculino</option>
-                                        <option value="X">Otros</option>
-                                    </select>
+                                    <h4>Indica tu sexo</h4>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="Masculino" v-model="sexo"
+                                            value="M">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Masculino
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="Femenino" v-model="sexo" value="F">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Femenino
+                                        </label>
+                                    </div>
+
+                                    <h4>Indica tu Género</h4>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="Masculino" v-model="sexo"
+                                            value="M">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Masculino
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="Femenino" v-model="sexo" value="F">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Femenino
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="Otros" v-model="sexo" value="X">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Otros
+                                        </label>
+                                    </div>
 
                                     <div class="form-floating mb-3">
                                         <input type="email" class="form-control" id="email" placeholder="name@example.com"
@@ -145,21 +168,21 @@ export default {
 
             }
             fetch("https://rafalopez.ar/v1/user/create", requestOptions)
-            .then(response => {
-                const cookies = response.headers.get('Set-Cookie');
-                console.log('Cookies:', cookies)
-                
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Error en la solicitud');
-                }
-            })
-            .then(responseJson => {
-                console.log('Response ', responseJson);
-                this.$router.push('/profile');
-            })
-            .catch(error => console.error('Error:', error));
+                .then(response => {
+                    const cookies = response.headers.get('Set-Cookie');
+                    console.log('Cookies:', cookies)
+
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Error en la solicitud');
+                    }
+                })
+                .then(responseJson => {
+                    console.log('Response ', responseJson);
+                    this.$router.push('/profile');
+                })
+                .catch(error => console.error('Error:', error));
         },
     }
 }
