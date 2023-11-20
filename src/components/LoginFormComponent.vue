@@ -34,9 +34,6 @@
 export default {
     name: 'LoginFormComponent',
 
-
-
-
     data() {
         return {
             email: '',
@@ -75,11 +72,13 @@ const requestOptions = {
             })
             .then(responseJson => {
                 console.log('Response ', responseJson);
+                const store = this.$store;
+                store.commit('setUser', responseJson)
                 this.$router.push('/profile');
             })
             .catch(error => console.error('Error:', error));
         },
-        
+
         getUser() {
             const requestOptions = {
                 method: 'GET',
