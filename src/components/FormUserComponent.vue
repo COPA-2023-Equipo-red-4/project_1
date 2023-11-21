@@ -16,13 +16,11 @@
                                             placeholder="nombre">
                                         <label for="floatingInput">Nombre</label>
                                     </div>
-
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="apellidos" placeholder="apellido"
                                             v-model="apellido">
                                         <label for="floatingInput">Apellido</label>
                                     </div>
-
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="telefono" placeholder="telefono"
                                             v-model="telefono">
@@ -40,18 +38,15 @@
                                             v-model="domicilio">
                                         <label for="floatingInput">Domicilio</label>
                                     </div>
-
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="ciudad" placeholder="ciudad"
                                             v-model="ciudad">
                                         <label for="floatingInput">Ciudad</label>
                                     </div>
-
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais">
                                         <label for="floatingInput">pais</label>
                                     </div>
-
                                     <h4>Indica tu sexo</h4>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" v-model="sexo" value="M">
@@ -65,7 +60,6 @@
                                             Femenino
                                         </label>
                                     </div>
-
                                     <h4>Indica tu Género</h4>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" v-model="genero" value="M">
@@ -91,7 +85,6 @@
                                             v-model="email">
                                         <label for="floatingInput">Email</label>
                                     </div>
-
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Foto</label>
                                         <input class="form-control" type="file" @change="handleFileChange">
@@ -107,14 +100,12 @@
                                             v-model="confirmPassword">
                                         <label for="floatingPassword">Confirmar contraseña</label>
                                     </div>
-
                                     <div class="form-check mb-3">
                                         <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                                         <label class="form-check-label" for="rememberPasswordCheck">
                                             Recuerda contraseña
                                         </label>
                                     </div>
-
                                     <div class="d-grid">
                                         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                                             type="button" @click="submitForm"> Registrate </button>
@@ -160,6 +151,7 @@ export default {
             console.log('en submitform');
             const formdata = new FormData();
             formdata.append("nombres", this.nombres);
+            formdata.append("apellido", this.apellido);
             formdata.append("pass", this.pass);
             formdata.append("email", this.email);
             formdata.append("telefono", this.telefono);
@@ -184,7 +176,7 @@ export default {
                 .then(response => {
 
                     if (response.ok) {
-                        return response.text();
+                        return response.json();
                     } else {
                         throw new Error('Error en la solicitud');
                     }
@@ -195,7 +187,6 @@ export default {
                 })
                 .catch(error => console.error('Error:', error));
         },
-
         handleFileChange(event) {
             this.foto = event.target.files[0];
         },
