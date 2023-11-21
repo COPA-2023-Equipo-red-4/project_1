@@ -8,6 +8,7 @@ import ProfiledetailView from '../views/ProfiledetailView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import MascotaDetailView from '../views/MascotaDetailView.vue'
 import PetRegisterView from '../views/PetRegisterView.vue'
+import AboutUsView from '../views/AboutUsView.vue'
 
 const routes = [
 
@@ -20,6 +21,11 @@ const routes = [
     path: '/home',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutUsView
   },
   {
     path: '/login',

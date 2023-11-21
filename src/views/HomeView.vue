@@ -1,7 +1,6 @@
 <template>
   <div class="home vh-100">
-    <!-- <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+
     <NavBarComponent/>
     <PrincipalComponent/>
   </div>

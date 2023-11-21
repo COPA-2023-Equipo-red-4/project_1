@@ -13,6 +13,8 @@ export default createStore({
 
     },
     getters: {
-
+        isAuthenticated: (state) => {
+            return state.user !== null;
+        },
     },
 });

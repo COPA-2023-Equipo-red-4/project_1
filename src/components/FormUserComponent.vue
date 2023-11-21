@@ -184,14 +184,14 @@ export default {
                 .then(response => {
 
                     if (response.ok) {
-                        return response.json();
+                        return response.text();
                     } else {
                         throw new Error('Error en la solicitud');
                     }
                 })
                 .then(responseJson => {
                     console.log('Response ', responseJson);
-                    // this.$router.push('/profile');
+                    this.$router.push('/profile');
                 })
                 .catch(error => console.error('Error:', error));
         },

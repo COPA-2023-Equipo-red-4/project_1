@@ -15,29 +15,36 @@
 
           <li class="nav-item">
             <a class="nav-link" href="/">
+              <font-awesome-icon icon="fa-solid fa-hand" />
               <router-link to="/about" class="link-hover">Acerca del proyecto</router-link>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/">
+              <font-awesome-icon icon="fa-solid fa-paw" />
               <router-link to="/pets" class="link-hover">Mascotas</router-link>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="isAuthenticated" >
             <a class="nav-link" href="/">
-              <router-link to="/Profile" class="link-hover">Mi Perfil</router-link>
+              <font-awesome-icon icon="fa-solid fa-person" />
+              <router-link to="/Profile" class="link-hover" >Mi Perfil</router-link>
             </a>
           </li>
         </ul>
         <form class="d-flex" role="search">
+          
+          <li class="nav-item">
 
-          <a class="nav-link" href="/">
-            <router-link to="/login" class="link-hover">Login</router-link>
-          </a>
+            
+            <div v-if="isAuthenticated">
+            <router-link to="/login" class="link-hover"  @click="Logout"> Logout</router-link>
+            </div>
+            <router-link to="/login" class="link-hover" v-else >Login</router-link>
+            
+            <router-link to="/register" class="link-hover" v-if="!isAuthenticated" >Registrate</router-link>
 
-          <a class="nav-link" href="/">
-            <router-link to="/register" class="link-hover">Registrate</router-link>
-          </a>
+          </li>
         </form>
       </div>
     </div>
@@ -54,16 +61,48 @@ export default {
     return {
       email: '',
       password: '',
-      isAuthenticated: false,
+      usuarioAutenticado: false,
     };
+  },
+
+  computed: {
+    isAuthenticated() {
+      // Utiliza el getter para obtener el estado de autenticación
+      return this.$store.getters.isAuthenticated;
+    },
   },
 
   methods: {
 
+      Logout() {
+            const requestOptions = {
+                method: 'GET',
+                credentials: 'include',
+                redirect: 'follow',
+                mode: 'cors'
+            };
+            fetch("https://rafalopez.ar/v1/user/logout", requestOptions)
+                .then(response => {
+                    // Imprimir las cookies de la respuesta
+                    
+                    console.log(response);
+                    this.$store.commit('setUser', null)
+                    return response.text();
+                    
+                })
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        },
+    },
+    logout() {
+      // Lógica de cierre de sesión aquí
+      // Después de cerrar sesión, establece usuarioAutenticado en false
+      this.usuarioAutenticado = false;
+    },
 
   }
 
-}
+
 
 </script>
 
@@ -72,6 +111,10 @@ export default {
   background: none;
   width: 120px;
   height: 50px;
+  margin-right: 15px;
+}
+.logo:hover {
+  background-image: '../assets/envelope-fill.svg';
 }
 
 .link-hover {
@@ -85,6 +128,10 @@ export default {
 
 .nav {
   margin-right: 20px;
+}
+
+li {
+  list-style: none;
 }
 
 </style>

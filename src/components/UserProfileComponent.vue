@@ -20,13 +20,12 @@
 
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                    aria-controls="home" aria-selected="true">Sobre mi</a>
+                                <a class="nav-link">
+                                    <router-link to="/profile">Ver detalles</router-link> </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                    aria-controls="profile" aria-selected="false">
-                                    <router-link to="/profiledetail">Ver detalles</router-link> </a>
+                                <a class="nav-link">
+                                    <router-link to="/profiledetail">Ver mas detalles</router-link> </a>
                             </li>
                         </ul>
                     </div>

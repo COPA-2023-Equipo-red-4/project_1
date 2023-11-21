@@ -3,7 +3,7 @@
         <NavBarComponent/>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <ProfileDetailComponent/>
                 </div>
             </div>
