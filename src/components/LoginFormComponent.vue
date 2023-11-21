@@ -92,7 +92,7 @@ export default {
                     // Imprimir las cookies de la respuesta
 
                     console.log(response);
-                    return response.text();
+                    return response.json();
                 })
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));
