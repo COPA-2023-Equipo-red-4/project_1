@@ -13,13 +13,13 @@
                                 <form>
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="nombres" v-model="nombres"
-                                            placeholder="nombre" required>
+                                            placeholder="nombre">
                                         <label for="floatingInput">Nombre</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="apellidos" placeholder="apellido"
-                                            v-model="apellido" required>
+                                            v-model="apellido">
                                         <label for="floatingInput">Apellido</label>
                                     </div>
 
@@ -31,39 +31,36 @@
 
                                     <div class="form-floating mb-3">
                                         <input type="date" class="form-control" id="fecha_nacimiento"
-                                            placeholder="fechaDeNacimiento" v-model="fecha_nacimiento" required>
+                                            placeholder="fechaDeNacimiento" v-model="fecha_nacimiento">
                                         <label for="floatingInput">Fecha de nacimiento</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="domicilio" placeholder="domicilio"
-                                            v-model="domicilio" required>
+                                            v-model="domicilio">
                                         <label for="floatingInput">Domicilio</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="ciudad" placeholder="ciudad"
-                                            v-model="ciudad" required>
+                                            v-model="ciudad">
                                         <label for="floatingInput">Ciudad</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais"
-                                            required>
+                                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais">
                                         <label for="floatingInput">pais</label>
                                     </div>
 
-
                                     <h4>Indica tu sexo</h4>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="Masculino" v-model="sexo"
-                                            value="M">
+                                        <input class="form-check-input" type="radio" v-model="sexo" value="M">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Masculino
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="Femenino" v-model="sexo" value="F">
+                                        <input class="form-check-input" type="radio" v-model="sexo" value="F">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Femenino
                                         </label>
@@ -71,20 +68,19 @@
 
                                     <h4>Indica tu Género</h4>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="Masculino" v-model="genero"
-                                            value="M">
+                                        <input class="form-check-input" type="radio" v-model="genero" value="M">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Masculino
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="Femenino" v-model="genero" value="F">
+                                        <input class="form-check-input" type="radio" v-model="genero" value="F">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Femenino
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="Otros" v-model="genero" value="X">
+                                        <input class="form-check-input" type="radio" v-model="genero" value="X">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Otros
                                         </label>
@@ -92,24 +88,23 @@
 
                                     <div class="form-floating mb-3">
                                         <input type="email" class="form-control" id="email" placeholder="name@example.com"
-                                            v-model="email" required>
+                                            v-model="email">
                                         <label for="floatingInput">Email</label>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Foto</label>
-                                        <input class="form-control" type="file" id="formFile" v-on:change="foto">
+                                        <input class="form-control" type="file" @change="handleFileChange">
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="floatingPassword"
-                                            placeholder="Contraseña" v-model="pass" required>
+                                        <input type="password" class="form-control" placeholder="Contraseña" v-model="pass">
                                         <label for="floatingPassword">Contraseña</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="floatingPassword"
-                                            placeholder="confirmar contraseña" v-model="confirmPassword" required>
+                                        <input type="password" class="form-control" placeholder="confirmar contraseña"
+                                            v-model="confirmPassword">
                                         <label for="floatingPassword">Confirmar contraseña</label>
                                     </div>
 
@@ -122,7 +117,7 @@
 
                                     <div class="d-grid">
                                         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                                            type="submit" @click="submitForm"> Registrate </button>
+                                            type="button" @click="submitForm"> Registrate </button>
                                         <div class="text-center">
                                             <a class="small" href="#">Olvidaste tu contraseña?</a>
                                         </div>
@@ -155,33 +150,29 @@ export default {
             ciudad: '',
             pais: '',
             sexo: 'Elige tu sexo',
-            genero: 'Elige tu genero',
+            genero: 'X',
             foto: '',
         };
     },
 
     methods: {
         submitForm() {
-            // Aquí puedes enviar los datos del formulario a tu API
-            const formData = {
-                nombre: this.nombre,
-                apellido: this.apellido,
-                email: this.email,
-                telefono: this.telefono,
-                pass: this.password,
-                confirmPassword: this.confirmPassword,
-                fecha_nacimiento: this.fecha_nacimiento,
-                domicilio: this.domicilio,
-                ciudad: this.ciudad,
-                pais: this.pais,
-                sexo: this.sexo,
-                genero: this.genero,
-                foto: this.foto,
-            };
-
+            console.log('en submitform');
+            const formdata = new FormData();
+            formdata.append("nombres", this.nombres);
+            formdata.append("pass", this.pass);
+            formdata.append("email", this.email);
+            formdata.append("telefono", this.telefono);
+            formdata.append("fecha_nacimiento", this.fecha_nacimiento);
+            formdata.append("domicilio", this.domicilio);
+            formdata.append("ciudad", this.ciudad);
+            formdata.append("pais", this.pais);
+            formdata.append("sexo", this.sexo);
+            formdata.append("genero", this.genero);
+            formdata.append("foto", this.foto);
             const requestOptions = {
                 method: 'POST',
-                body: formData,
+                body: formdata,
                 credentials: 'include',
                 redirect: 'follow',
                 mode: 'cors'
@@ -190,25 +181,26 @@ export default {
             fetch("https://rafalopez.ar/v1/user/create", requestOptions)
                 .then(response => {
                     const cookies = response.headers.get('Set-Cookie');
-                    console.log('Cookies:', cookies)
+                    console.log('Cookies:', cookies);
 
                     if (response.ok) {
                         return response.json();
                     } else {
-                        throw new Error('Error en la solicitud');
+                        throw new Error('Error NO PUDIMOA CREAR EL USUARIO ');
                     }
                 })
                 .then(responseJson => {
                     console.log('Response ', responseJson);
-                    // this.$router.push('/profile');
+                    const store = this.$store;
+                    store.commit('setUser', responseJson)
+                    this.$router.push('/profile');
                 })
                 .catch(error => console.error('Error:', error));
         },
 
         handleFileChange(event) {
-        this.foto = event.target.files[0];
-    },
-
+            this.foto = event.target.files[0];
+        },
     }
 }
 </script>
