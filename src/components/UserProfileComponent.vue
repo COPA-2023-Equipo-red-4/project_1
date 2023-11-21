@@ -165,9 +165,7 @@
         </form>
     </div>
 </template>
-
 <script>
-
 export default {
     name: "UserProfileComponent",
     computed: {
@@ -305,4 +303,5 @@ body {
 .profile-tab p {
     font-weight: 600;
     color: #0062cc;
-}</style>
+}
+</style>

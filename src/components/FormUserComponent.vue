@@ -12,14 +12,14 @@
                                 <!-- Sign In Form -->
                                 <form>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nombres" v-model="nombres"
+                                        <input type="text" class="form-control" id="nombres" v-model="nombres" required
                                             placeholder="nombre">
                                         <label for="floatingInput">Nombre</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="apellidos" placeholder="apellido"
-                                            v-model="apellido">
+                                        <input type="text" class="form-control" id="apellidos" required
+                                            placeholder="apellido" v-model="apellido">
                                         <label for="floatingInput">Apellido</label>
                                     </div>
 
@@ -30,11 +30,10 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="date" class="form-control" id="fecha_nacimiento"
+                                        <input type="date" class="form-control" id="fecha_nacimiento" required
                                             placeholder="fechaDeNacimiento" v-model="fecha_nacimiento">
                                         <label for="floatingInput">Fecha de nacimiento</label>
                                     </div>
-
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="domicilio" placeholder="domicilio"
                                             v-model="domicilio">
@@ -42,19 +41,20 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="ciudad" placeholder="ciudad"
+                                        <input type="text" class="form-control" id="ciudad" required placeholder="ciudad"
                                             v-model="ciudad">
                                         <label for="floatingInput">Ciudad</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais">
+                                        <input type="text" class="form-control" id="pais" required placeholder="pais"
+                                            v-model="pais">
                                         <label for="floatingInput">pais</label>
                                     </div>
 
                                     <h4>Indica tu sexo</h4>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" v-model="sexo" value="M">
+                                        <input class="form-check-input" type="radio" v-model="sexo" value="M" required>
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Masculino
                                         </label>
@@ -88,7 +88,7 @@
 
                                     <div class="form-floating mb-3">
                                         <input type="email" class="form-control" id="email" placeholder="name@example.com"
-                                            v-model="email">
+                                            required v-model="email">
                                         <label for="floatingInput">Email</label>
                                     </div>
 
@@ -98,13 +98,14 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" placeholder="Contraseña" v-model="pass">
+                                        <input type="password" class="form-control" required placeholder="Contraseña"
+                                            v-model="pass">
                                         <label for="floatingPassword">Contraseña</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" placeholder="confirmar contraseña"
-                                            v-model="confirmPassword">
+                                        <input type="password" class="form-control" required
+                                            placeholder="confirmar contraseña" v-model="confirmPassword">
                                         <label for="floatingPassword">Confirmar contraseña</label>
                                     </div>
 
