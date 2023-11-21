@@ -1,18 +1,18 @@
 <template>
     <div>
-        <section class="dark">
+        <section class="blue">
             <div class="container py-4">
-                <h1 class="h1 text-center" id="pageHeaderTitle">My Cards Dark</h1>
+                <h1 class="h1 text-center" id="pageHeaderTitle">Saluden a ...</h1>
 
-                <article class="postcard dark blue">
+                <article class="postcard green blue">
                     <a class="postcard__img_link" href="#">
                         <img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
                     </a>
                     <div class="postcard__text">
-                        <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
+                        <h1 class="postcard__title blue"><a href="#">Nombre del animal</a></h1>
                         <div class="postcard__subtitle small">
                             <time datetime="2020-05-25 12:00:00">
-                                <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+                                <i class="fas fa-calendar-alt mr-2"></i>Fecha de nacimiento
                             </time>
                         </div>
                         <div class="postcard__bar"></div>
@@ -22,10 +22,10 @@
                             vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis
                             enim quidem excepturi, illum quos!</div>
                         <ul class="postcard__tagbox">
-                            <li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
-                            <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+                            <li class="tag__item"><i class="fas fa-tag mr-2"></i>Sociable</li>
+                            <li class="tag__item"><i class="fas fa-clock mr-2"></i>Desparasitado</li>
                             <li class="tag__item play blue">
-                                <a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+                                <a href="#"><i class="fas fa-play mr-2"></i>Le gustan los niños</a>
                             </li>
                         </ul>
                     </div>
@@ -56,13 +56,13 @@ $main-blue-rgb-015: rgba(0, 118, 189, 0.1) !default;
 body {
     font-family: "Baloo 2", cursive;
     font-size: 16px;
-    color: #ffffff;
+    color: #030303;
     text-rendering: optimizeLegibility;
     font-weight: initial;
 }
 
-.dark {
-    background: #110f16;
+.green {
+    background: rgb(196, 177, 11);
 }
 
 
@@ -93,7 +93,7 @@ a:hover {
     margin: 0 0 2rem 0;
     overflow: hidden;
     position: relative;
-    color: #ffffff;
+    color: #0a0a0a;
 
     &.dark {
         background-color: #18151f;
@@ -142,7 +142,7 @@ a:hover {
         height: 10px;
         margin: 10px 0;
         border-radius: 5px;
-        background-color: #424242;
+        background-color: #a35d5d;
         transition: width 0.2s ease;
     }
 
@@ -179,7 +179,7 @@ a:hover {
             transition: background-color 0.3s;
 
             &:hover {
-                background: rgba(83, 83, 83, 0.8);
+                background: rgba(209, 89, 89, 0.8);
             }
         }
     }
@@ -273,7 +273,7 @@ a:hover {
         width: 55px;
     }
 
-    .postcard.dark {
+    .postcard.green {
         .postcard__text:before {
             background: #18151f;
         }

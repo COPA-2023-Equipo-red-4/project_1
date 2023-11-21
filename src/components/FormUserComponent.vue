@@ -14,12 +14,14 @@
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="nombres" v-model="nombres"
                                             placeholder="nombre">
+                                        placeholder="nombre">
                                         <label for="floatingInput">Nombre</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="apellidos" placeholder="apellido"
                                             v-model="apellido">
+                                        v-model="apellido">
                                         <label for="floatingInput">Apellido</label>
                                     </div>
 
@@ -32,22 +34,26 @@
                                     <div class="form-floating mb-3">
                                         <input type="date" class="form-control" id="fecha_nacimiento"
                                             placeholder="fechaDeNacimiento" v-model="fecha_nacimiento">
+                                        placeholder="fechaDeNacimiento" v-model="fecha_nacimiento">
                                         <label for="floatingInput">Fecha de nacimiento</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="domicilio" placeholder="domicilio"
                                             v-model="domicilio">
+                                        v-model="domicilio">
                                         <label for="floatingInput">Domicilio</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="ciudad" placeholder="ciudad"
                                             v-model="ciudad">
+                                        v-model="ciudad">
                                         <label for="floatingInput">Ciudad</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais">
                                         <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais">
                                         <label for="floatingInput">pais</label>
                                     </div>
@@ -55,11 +61,13 @@
                                     <h4>Indica tu sexo</h4>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" v-model="sexo" value="M">
+                                        <input class="form-check-input" type="radio" v-model="sexo" value="M">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Masculino
                                         </label>
                                     </div>
                                     <div class="form-check">
+                                        <input class="form-check-input" type="radio" v-model="sexo" value="F">
                                         <input class="form-check-input" type="radio" v-model="sexo" value="F">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Femenino
@@ -69,17 +77,20 @@
                                     <h4>Indica tu Género</h4>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" v-model="genero" value="M">
+                                        <input class="form-check-input" type="radio" v-model="genero" value="M">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Masculino
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" v-model="genero" value="F">
+                                        <input class="form-check-input" type="radio" v-model="genero" value="F">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Femenino
                                         </label>
                                     </div>
                                     <div class="form-check">
+                                        <input class="form-check-input" type="radio" v-model="genero" value="X">
                                         <input class="form-check-input" type="radio" v-model="genero" value="X">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Otros
@@ -89,20 +100,25 @@
                                     <div class="form-floating mb-3">
                                         <input type="email" class="form-control" id="email" placeholder="name@example.com"
                                             v-model="email">
+                                        v-model="email">
                                         <label for="floatingInput">Email</label>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Foto</label>
                                         <input class="form-control" type="file" @change="handleFileChange">
+                                        <input class="form-control" type="file" @change="handleFileChange">
                                     </div>
 
                                     <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" placeholder="Contraseña" v-model="pass">
                                         <input type="password" class="form-control" placeholder="Contraseña" v-model="pass">
                                         <label for="floatingPassword">Contraseña</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" placeholder="confirmar contraseña"
+                                            v-model="confirmPassword">
                                         <input type="password" class="form-control" placeholder="confirmar contraseña"
                                             v-model="confirmPassword">
                                         <label for="floatingPassword">Confirmar contraseña</label>
@@ -118,6 +134,7 @@
                                     <div class="d-grid">
                                         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                                             type="button" @click="submitForm"> Registrate </button>
+                                        type="button" @click="submitForm"> Registrate </button>
                                         <div class="text-center">
                                             <a class="small" href="#">Olvidaste tu contraseña?</a>
                                         </div>
@@ -184,7 +201,7 @@ export default {
                     console.log('Cookies:', cookies);
 
                     if (response.ok) {
-                        return response.json();
+                        return response.text();
                     } else {
                         throw new Error('Error NO PUDIMOA CREAR EL USUARIO ');
                     }

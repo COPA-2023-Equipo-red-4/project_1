@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AboutView from '../views/AboutView.vue'
+import LandingView from '../views/LandingView.vue'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import PetsView from '../views/PetsView.vue'
@@ -7,17 +7,25 @@ import ProfileView from '../views/ProfileView.vue'
 import ProfiledetailView from '../views/ProfiledetailView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import MascotaDetailView from '../views/MascotaDetailView.vue'
+import PetRegisterView from '../views/PetRegisterView.vue'
+import AboutUsView from '../views/AboutUsView.vue'
 
 const routes = [
+
   {
     path: '/',
+    name: 'landing',
+    component: LandingView
+  },
+  {
+    path: '/home',
     name: 'home',
     component: HomeView
   },
   {
     path: '/about',
     name: 'about',
-    component: AboutView
+    component: AboutUsView
   },
   {
     path: '/login',
@@ -48,6 +56,11 @@ const routes = [
     path: '/MascotaProfile',
     name: 'MascotaProfile',
     component: MascotaDetailView
+  },
+  {
+    path: '/PetRegister',
+    name: 'PetRegister',
+    component: PetRegisterView
   },
 ]
 

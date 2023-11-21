@@ -4,10 +4,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <LoginIdeasComponent/>
+                    <LoginFormComponent/>
                 </div>
                 <div class="col-md-6">
-                    <LoginFormComponent/>
+                    <LoginIdeasComponent/>
                 </div>
             </div>
         </div>

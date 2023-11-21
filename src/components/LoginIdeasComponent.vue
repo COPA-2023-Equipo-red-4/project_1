@@ -3,9 +3,9 @@
     <div> 
 
     </div>
-        <h3 class="text-success">Algo que encierre una idea</h3>
+        <h3 class="texto-importante">Algo que encierre una idea</h3>
 
-        <p class="text-success pb-2">Una explicacion del titulo de arriba un poco mas en detalle</p>
+        <p class="texto-importante pb-2">Una explicacion del titulo de arriba un poco mas en detalle</p>
     
         <ul class="pt-5">
             <li class="text-white mb-2">Adoptar implica tener una mascota nueva</li>
@@ -21,7 +21,7 @@
 
     export default {
         name:'LoginIdeasComponent',
-
+        
 };
     
 
@@ -31,5 +31,9 @@
 <style scoped>
 li{
     list-style: none;
+}
+
+.texto-importante {
+    color: aliceblue;
 }
 </style>
