@@ -28,7 +28,7 @@ export default {
 
   mounted() {
     // Palabras que quieres que aparezcan en el h1
-    const words = ['AMAR', 'QUERER', 'VIDA', 'CONECTAR', 'RECUERDOS', 'PROPOSITO', 'DAR', 'RECIBIR'];
+    const words = ['AMAR', 'QUERER', 'VIDA', 'CONECTAR'];
 
     // Agrega un pequeño retraso antes de activar la animación
     setTimeout(() => {
@@ -254,4 +254,3 @@ textarea {
 }
 
 </style>
-

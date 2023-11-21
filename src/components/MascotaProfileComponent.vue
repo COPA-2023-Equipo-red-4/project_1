@@ -330,27 +330,22 @@ a:hover {
     background-image: linear-gradient(30deg, $main-blue-rgb-015, transparent 50%);
 }
 
-.postcard .postcard__tagbox .red.play:hover {
+.postcard .postcard__tagbox .play:hover {
     background: $main-red;
 }
 
-.red .postcard__title:hover {
+.postcard__title:hover {
     color: $main-red;
 }
 
-.red .postcard__bar {
+.postcard__bar {
     background-color: $main-red;
 }
 
-.red::before {
-    background-image: linear-gradient(-30deg, $main-red-rgb-015, transparent 50%);
-}
 
-.red:nth-child(2n)::before {
-    background-image: linear-gradient(30deg, $main-red-rgb-015, transparent 50%);
-}
 
-.postcard .postcard__tagbox .yellow.play:hover {
+
+.postcard .postcard__tagbox .play:hover {
     background: $main-yellow;
     color: black;
 }
@@ -365,12 +360,6 @@ a:hover {
 
 .yellow::before {
     background-image: linear-gradient(-30deg,
-            $main-yellow-rgb-015,
-            transparent 50%);
-}
-
-.yellow:nth-child(2n)::before {
-    background-image: linear-gradient(30deg,
             $main-yellow-rgb-015,
             transparent 50%);
 }
@@ -398,23 +387,4 @@ a:hover {
         background-image: linear-gradient(80deg, $main-blue-rgb-015, transparent 50%);
     }
 
-    .red::before {
-        background-image: linear-gradient(-80deg, $main-red-rgb-015, transparent 50%);
-    }
-
-    .red:nth-child(2n)::before {
-        background-image: linear-gradient(80deg, $main-red-rgb-015, transparent 50%);
-    }
-
-    .yellow::before {
-        background-image: linear-gradient(-80deg,
-                $main-yellow-rgb-015,
-                transparent 50%);
-    }
-
-    .yellow:nth-child(2n)::before {
-        background-image: linear-gradient(80deg,
-                $main-yellow-rgb-015,
-                transparent 50%);
-    }
 }</style>

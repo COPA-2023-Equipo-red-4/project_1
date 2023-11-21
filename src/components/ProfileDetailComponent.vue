@@ -166,24 +166,26 @@
 
 export default {
     name: "ProfileDetailComponent",
-    computed: {
-        datos() {
-            return this.$store.state.user;
-        },
-
-        imageUrl() {
-            return `https://rafalopez.ar${this.datos.foto}`;
-        }
-    },
-
-
 
     methods: {
+        
         buildImageUrl(relativePath) {
             // Construir la URL completa de la imagen
             return `https://rafalopez.ar${relativePath}`;
         },
-    }
+        imageUrl() {
+            return `https://rafalopez.ar${this.datos.foto}`;
+        },
+
+    },
+    
+    mounted: {
+        datos() {
+            return this.$store.state.user;
+        },
+
+    },
+
 }
 
 </script>

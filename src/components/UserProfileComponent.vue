@@ -14,18 +14,19 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h3>
-                            Bienvenido, {{ datos.nombres }}
-                            {{ datos.apellido }}!
+                            Bienvenido, {{ datos?.nombres }}
+                            {{ datos?.apellido }}!
                         </h3>
 
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link">
-                                    <router-link to="/profile">Ver detalles</router-link> </a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                    aria-controls="home" aria-selected="true">Sobre mi</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">
-                                    <router-link to="/profiledetail">Ver mas detalles</router-link> </a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                    aria-controls="profile" aria-selected="false">
+                                    <router-link to="/profiledetail">Ver detalles</router-link> </a>
                             </li>
                         </ul>
                     </div>
@@ -58,7 +59,7 @@
                                     <label>Nombre</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ datos.nombres }}</p>
+                                    <p>{{ datos?.nombres }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -66,7 +67,7 @@
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ datos.email }}</p>
+                                    <p>{{ datos?.email }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -74,7 +75,7 @@
                                     <label>Telefono</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ datos.telefono }}</p>
+                                    <p>{{ datos?.telefono }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -82,7 +83,7 @@
                                     <label>Fecha de nacimiento</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ datos.fecha_nacimiento }}</p>
+                                    <p>{{ datos?.fecha_nacimiento }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -90,7 +91,7 @@
                                     <label>domicilio</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ datos.domicilio }}</p>
+                                    <p>{{ datos?.domicilio }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -98,7 +99,7 @@
                                     <label>Ciudad</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ datos.ciudad }}</p>
+                                    <p>{{ datos?.ciudad }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -106,7 +107,7 @@
                                     <label>Pais</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ datos.pais }}</p>
+                                    <p>{{ datos?.pais }}</p>
                                 </div>
                             </div>
                         </div>
@@ -174,18 +175,17 @@ export default {
             return this.$store.state.user;
         },
 
-        imageUrl() {
-            return `https://rafalopez.ar${this.datos.foto}`;
-        }
+
     },
-
-
 
     methods: {
         buildImageUrl(relativePath) {
             // Construir la URL completa de la imagen
             return `https://rafalopez.ar${relativePath}`;
         },
+        imageUrl() {
+            return this.datos ? `https://rafalopez.ar${this.datos.foto}` : '';
+        }
     }
 }
 

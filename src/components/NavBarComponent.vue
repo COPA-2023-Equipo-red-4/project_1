@@ -37,9 +37,9 @@
           <li class="nav-item">
 
             
-            <div v-if="isAuthenticated">
-            <router-link to="/login" class="link-hover"  @click="Logout"> Logout</router-link>
-            </div>
+
+            <router-link to="/login" class="link-hover" v-if="isAuthenticated" @click="Logout"> Logout</router-link>
+
             <router-link to="/login" class="link-hover" v-else >Login</router-link>
             
             <router-link to="/register" class="link-hover" v-if="!isAuthenticated" >Registrate</router-link>
@@ -64,7 +64,6 @@ export default {
       usuarioAutenticado: false,
     };
   },
-
   computed: {
     isAuthenticated() {
       // Utiliza el getter para obtener el estado de autenticación
@@ -99,6 +98,8 @@ export default {
       // Después de cerrar sesión, establece usuarioAutenticado en false
       this.usuarioAutenticado = false;
     },
+
+
 
   }
 
