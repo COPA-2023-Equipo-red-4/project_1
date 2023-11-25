@@ -5,48 +5,72 @@
         <div class="row justify-content-evenly">
             <div class="col-4">
                 <form>
+                    <h4 class="mb-3">¿Como se llama la mascota?</h4>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nombres" v-model="nombres" placeholder="nombre">
+                        <input type="text" class="form-control" id="nombres" v-model="nombre" placeholder="nombre">
                         <label for="floatingInput">Nombre</label>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="telefono" placeholder="telefono" v-model="telefono">
-                        <label for="floatingInput">Especie</label>
-                    </div>
+                    <h4 class="mb-3">Indica la especie del animal</h4>
+                    <select class="form-select mb-3" v-model="id_especie">
+                        <option disabled value="">Por favor elige una especie</option>
+                        <option value="1">Perro</option>
+                        <option value="2">Gato</option>
+                        <option value="3">Ave</option>
+                        <option value="4">Roedor</option>
+                        <option value="5">Reptil</option>
+                        <option value="6">Otros</option>
+                    </select>
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="telefono" placeholder="telefono" v-model="telefono">
-                        <label for="floatingInput">Raza</label>
-                    </div>
+                    <h4 class="mb-3">Indica la raza del animal</h4>
+                    <select class="form-select mb-3" v-model="id_raza">
+                        <option disabled value="">Por favor elige una raza</option>
+                        <option value="1">Angora</option>
+                        <option value="2">Siames</option>
+                        <option value="3">Egipcio</option>
+                        <option value="4">Persa</option>
+                        <option value="5">Gato</option>
+                        <option value="6">Labrador</option>
+                        <option value="7">Pastor Alemán</option>
+                        <option value="8">Boa</option>
+                        <option value="9">Otras razas</option>
+                    </select>
 
+                    <h4 class="mb-3">Indica el color del animal</h4>
+                    <select class="form-select mb-3" v-model="selected">
+                        <option disabled value="">Por favor elige un color</option>
+                        <option value="1">Blanco</option>
+                        <option value="2">Negro</option>
+                        <option value="3">Marrón</option>
+                        <option value="4">Dorado</option>
+                        <option value="5">Atigrado</option>
+                        <option value="6">Otro color</option>
+                    </select>
+
+                    <h4 class="mb-3">Indica cuando nacio el animal</h4>
                     <div class="form-floating mb-3">
-                        <input type="date" class="form-control" id="fecha_nacimiento" placeholder="fechaDeNacimiento"
-                            v-model="fecha_nacimiento">
+                        <input type="date" class="form-control" id="fecha_nacimiento" required
+                            placeholder="fechaDeNacimiento" v-model="fecha_nacimiento">
                         <label for="floatingInput">Fecha de nacimiento</label>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="domicilio" placeholder="domicilio" v-model="domicilio">
-                        <label for="floatingInput">Descripción</label>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="ciudad" placeholder="ciudad" v-model="ciudad">
-                        <label for="floatingInput">Observaciones</label>
-                    </div>
                 </form>
             </div>
 
             <div class="col-4">
                 <form>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="pais">
-                        <label for="floatingInput">pais</label>
+                        <input type="text" class="form-control" id="ciudad" placeholder="ciudad" v-model="descripcion">
+                        <label for="floatingInput">Descripcion del animal</label>
                     </div>
 
-                    <h4>Indica el sexo de tu mascota</h4>
-                    <div class="form-check">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="pais" placeholder="pais" v-model="observaciones">
+                        <label for="floatingInput">Observaciones</label>
+                    </div>
+
+                    <h4 class="mb-3">Indica el sexo de tu mascota</h4>
+                    <div class="form-check mb-3">
                         <input class="form-check-input" type="radio" v-model="sexo" value="F">
                         <label class="form-check-label" for="flexRadioDefault1">
                             Hembra
@@ -59,33 +83,56 @@
                         </label>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" v-model="email">
-                        <label for="floatingInput">Email</label>
-                    </div>
+                    <h4 class="mb-3">Indica el tamaño del animal</h4>
+                    <select class="form-select mb-3" v-model="tamanios">
+                        <option disabled value="">Por favor elige un tamaño</option>
+                        <option value="1">Pequeño</option>
+                        <option value="2">Mediano</option>
+                        <option value="3">Mediano-Grande</option>
+                        <option value="4">Grande</option>
+                        <option value="5">Muy grande</option>
+                    </select>
 
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Foto</label>
-                        <input class="form-control" type="file" @change="handleFileChange">
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" placeholder="Contraseña" v-model="pass">
-                        <label for="floatingPassword">Contraseña</label>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" placeholder="confirmar contraseña"
-                            v-model="confirmPassword">
-                        <label for="floatingPassword">Confirmar contraseña</label>
-                    </div>
-
+                    <h4 class="mb-3">¿Se encuentra castrado?</h4>
                     <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                        <label class="form-check-label" for="rememberPasswordCheck">
-                            Recuerda contraseña
+                        <input class="form-check-input" type="radio" v-model="castrado" value="1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Si
                         </label>
                     </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" v-model="castrado" value="0">
+                        <label class="form-check-label" for="flexRadioDefault2  ">
+                            No
+                        </label>
+                    </div>
+
+                    <h4 class="mb-3">Indica que tan sociable es</h4>
+                    <select class="form-select mb-3" v-model="id_sociabilidad">
+                        <option disabled value="">Por favor elige una opción</option>
+                        <option value="1">Amigable</option>
+                        <option value="2">Jugueton</option>
+                        <option value="3">Docil</option>
+                        <option value="4">Sociable con misma especie</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label" id="0">Foto 1</label>
+                        <input class="form-control" type="file" @change="handleFileChange(1)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label" id="1">Foto 2</label>
+                        <input class="form-control" type="file" @change="handleFileChange(2)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label" id="2">Foto 3</label>
+                        <input class="form-control" type="file" @change="handleFileChange(3)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label" id="3">Foto 4</label>
+                        <input class="form-control" type="file" @change="handleFileChange(4)">
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -93,10 +140,6 @@
 
         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="button" @click="submitForm">
             Guardar </button>
-        <div class="text-center">
-            <a class="small" href="#">Olvidaste tu contraseña?</a>
-        </div>
-
 
 
 
@@ -106,24 +149,25 @@
 </template>
 
 <script>
+
+
 export default {
     name: "FormPetComponent",
     data() {
         return {
             // Inicializa las propiedades del formulario
-            nombres: '',
-            apellido: '',
-            email: '',
-            telefono: '',
-            pass: '',
-            confirmPassword: '',
+            nombre: '',
+            id_especie: '',
+            id_raza: '',
+            id_color: '',
             fecha_nacimiento: '',
-            domicilio: '',
-            ciudad: '',
-            pais: '',
-            sexo: 'Elige tu sexo',
-            genero: 'Elige tu genero',
-            foto: '',
+            descripcion: '',
+            observaciones: '',
+            sexo: '',
+            tamanios: '',
+            castrado: '',
+            id_sociabilidad: '',
+            fotos: [],
         };
     },
 
@@ -131,17 +175,18 @@ export default {
         submitForm() {
             console.log('en submitform');
             const formdata = new FormData();
-            formdata.append("nombres", this.nombres);
-            formdata.append("pass", this.pass);
-            formdata.append("email", this.email);
-            formdata.append("telefono", this.telefono);
+            formdata.append("nombre", this.nombre);
+            formdata.append("id_especie", this.id_especie);
+            formdata.append("id_raza", this.id_raza);
+            formdata.append("id_color", this.id_color);
             formdata.append("fecha_nacimiento", this.fecha_nacimiento);
-            formdata.append("domicilio", this.domicilio);
-            formdata.append("ciudad", this.ciudad);
-            formdata.append("pais", this.pais);
+            formdata.append("descripcion", this.descripcion);
+            formdata.append("observaciones", this.observaciones);
             formdata.append("sexo", this.sexo);
-            formdata.append("genero", this.genero);
-            formdata.append("foto", this.foto);
+            formdata.append("tamanios", this.tamanios);
+            formdata.append("castrado", this.castrado);
+            formdata.append("id_sociabilidad", this.id_sociabilidad);
+            formdata.append("fotos", this.fotos);
 
 
             const requestOptions = {
@@ -152,11 +197,11 @@ export default {
                 mode: 'cors'
 
             }
-            fetch("https://rafalopez.ar/v1/user/create", requestOptions)
+            fetch("https://rafalopez.ar/v1/mascota/register", requestOptions)
                 .then(response => {
 
                     if (response.ok) {
-                        return response.json();
+                        return response.text();
                     } else {
                         throw new Error('Error en la solicitud');
                     }
@@ -168,8 +213,8 @@ export default {
                 .catch(error => console.error('Error:', error));
         },
 
-        handleFileChange(event) {
-            this.foto = event.target.files[0];
+        handleFileChange(event, id_foto) {
+            this.fotos[id_foto - 1] = event.target.files[0];
         },
 
 
@@ -179,16 +224,6 @@ export default {
 </script>
 
 <style scoped>
-.login {
-    min-height: 100vh;
-}
-
-.bg-image {
-    background-image: url('../assets/cutedog_form_registro.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
 .login-heading {
     font-weight: 300;
 }

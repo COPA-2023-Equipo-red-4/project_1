@@ -20,5 +20,3 @@ library.add(faPaw)
 library.add(faHand)
 
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router).use(store).mount('#app');
-
-

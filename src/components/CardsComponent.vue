@@ -1,7 +1,7 @@
 <template> 
     <div class="container mx-auto mt-4">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="flex row">
+    <div class="row-md-6">
       <div class="card">
   <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
   <div class="card-body">
@@ -9,7 +9,7 @@
         <h6 class="card-subtitle mb-2 text-muted">Especie</h6>
     <p class="card-text">Esta es una mascota que seguramente todos querrian tener.</p>
     <a class="btn mr-2" href="#">
-            <router-link to="/MascotaProfile">Registrate</router-link>
+            <router-link to="/MascotaProfile">Ver más</router-link>
         </a>
   </div>
   </div>

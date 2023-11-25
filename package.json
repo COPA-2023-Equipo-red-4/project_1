@@ -23,6 +23,7 @@
     "lottie-web": "^5.12.2",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
+    "vue-select-3": "^1.0.1",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
