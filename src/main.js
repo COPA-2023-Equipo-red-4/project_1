@@ -15,11 +15,13 @@ import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { faPaw } from "@fortawesome/free-solid-svg-icons";
 import { faHand } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faRightFromBracket)
 library.add(faPerson)
 library.add(faPaw)
 library.add(faHand)
+library.add(faHouse)
 
 const app = createApp(App)
 

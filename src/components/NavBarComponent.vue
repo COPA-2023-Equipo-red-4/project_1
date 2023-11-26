@@ -19,6 +19,12 @@
               <router-link to="/about" class="link-hover">Acerca del proyecto</router-link>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <font-awesome-icon icon="fa-solid fa-house" />
+              <router-link to="/home" class="link-hover">Home</router-link>
+            </a>
+          </li>
           <li class="nav-item" v-if="isAuthenticated">
             <a class="nav-link" href="/">
               <font-awesome-icon icon="fa-solid fa-paw" />
