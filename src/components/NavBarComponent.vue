@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-md bg-success bg-gradient">
     <div class="container-fluid">
       <nav class="p-0">
-        <div class="pe-50px">
+        <div class="pe-100px">
           <img src="../assets/logo-no-bg.png" alt="logo sin bg" class="logo">
         </div>
       </nav>
@@ -110,7 +110,7 @@ export default {
 <style scoped>
 .logo {
   background: none;
-  width: 120px;
+  width: 140px;
   height: 50px;
   margin-right: 15px;
 }

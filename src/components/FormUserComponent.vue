@@ -1,138 +1,130 @@
 <template>
-    <div class="container-fluid ps-md-0">
-        <div class="row g-0">
-            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-            <div class="col-md-8 col-lg-6">
-                <div class="login d-flex align-items-center py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-9 col-lg-8 mx-auto">
-                                <h3 class="login-heading mb-4">Bienvenido!</h3>
+    <h3 class="login-heading mb-4">Bienvenido!</h3>
+    <div class="container text-center">
+        <div class="row align-items-start">
 
-                                <!-- Sign In Form -->
-                                <form>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nombres" v-model="nombres" required
-                                            placeholder="nombre">
-                                        <label for="floatingInput">Nombre</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="apellidos" required
-                                            placeholder="apellido" v-model="apellido">
-                                        <label for="floatingInput">Apellido</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="telefono" placeholder="telefono"
-                                            v-model="telefono">
-                                        <label for="floatingInput">Telefono</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="date" class="form-control" id="fecha_nacimiento" required
-                                            placeholder="fechaDeNacimiento" v-model="fecha_nacimiento">
-                                        <label for="floatingInput">Fecha de nacimiento</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="domicilio" placeholder="domicilio"
-                                            v-model="domicilio">
-                                        <label for="floatingInput">Domicilio</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="ciudad" required placeholder="ciudad"
-                                            v-model="ciudad">
-                                        <label for="floatingInput">Ciudad</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="pais" required placeholder="pais"
-                                            v-model="pais">
-                                        <label for="floatingInput">pais</label>
-                                    </div>
-
-                                    <h4>Indica tu sexo</h4>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" v-model="sexo" value="M" required>
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Masculino
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" v-model="sexo" value="F">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Femenino
-                                        </label>
-                                    </div>
-
-                                    <h4>Indica tu Género</h4>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" v-model="genero" value="M">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Masculino
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" v-model="genero" value="F">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Femenino
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" v-model="genero" value="X">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Otros
-                                        </label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="email" placeholder="name@example.com"
-                                            required v-model="email">
-                                        <label for="floatingInput">Email</label>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label">Foto</label>
-                                        <input class="form-control" type="file" @change="handleFileChange">
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" required placeholder="Contraseña"
-                                            v-model="pass">
-                                        <label for="floatingPassword">Contraseña</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" required
-                                            placeholder="confirmar contraseña" v-model="confirmPassword">
-                                        <label for="floatingPassword">Confirmar contraseña</label>
-                                    </div>
-
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                                        <label class="form-check-label" for="rememberPasswordCheck">
-                                            Recuerda contraseña
-                                        </label>
-                                    </div>
-
-                                    <div class="d-grid">
-                                        <router-link to="/Profile">
-                                            <button
-                                                class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                                                type="button" @click="submitForm"> Registrate
-                                            </button>
-                                        </router-link>
-                                        <a class="small" href="#">Olvidaste tu contraseña?</a>
-                                    </div>
-                            </form>
-                        </div>
+            <div class="col max-auto mb-3" >
+                <form>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nombres" v-model="nombres" required
+                            placeholder="Indicanos tu nombre">
+                        <label for="floatingInput">Nombre</label>
                     </div>
-                </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="apellidos" required placeholder="apellido"
+                            v-model="apellido">
+                        <label for="floatingInput">Apellido</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="telefono" placeholder="telefono" v-model="telefono">
+                        <label for="floatingInput">Telefono</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="fecha_nacimiento" required
+                            placeholder="fechaDeNacimiento" v-model="fecha_nacimiento">
+                        <label for="floatingInput">Fecha de nacimiento</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="domicilio" placeholder="domicilio" v-model="domicilio">
+                        <label for="floatingInput">Domicilio</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="ciudad" required placeholder="ciudad" v-model="ciudad">
+                        <label for="floatingInput">Ciudad</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="pais" required placeholder="pais" v-model="pais">
+                        <label for="floatingInput">pais</label>
+                    </div>
+                </form>
             </div>
+
+            <div class="col max-auto mb-3" >
+                <form>
+
+                    <h4>Indica tu sexo</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" v-model="sexo" value="M" required>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" v-model="sexo" value="F">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Femenino
+                        </label>
+                    </div>
+
+                    <h4>Indica tu Género</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" v-model="genero" value="M">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" v-model="genero" value="F">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Femenino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" v-model="genero" value="X">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Otros
+                        </label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required
+                            v-model="email">
+                        <label for="floatingInput">Email</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Foto</label>
+                        <input class="form-control" type="file" @change="handleFileChange">
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" required placeholder="Contraseña" v-model="pass">
+                        <label for="floatingPassword">Contraseña</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" required placeholder="confirmar contraseña"
+                            v-model="confirmPassword">
+                        <label for="floatingPassword">Confirmar contraseña</label>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                        <label class="form-check-label" for="rememberPasswordCheck">
+                            Recuerda contraseña
+                        </label>
+                    </div>
+
+                    
+                </form>
+            </div>
+            <div class="d-grid">
+                        <router-link to="/Profile">
+                            <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="button"
+                                @click="submitForm"> Registrate
+                            </button>
+                        </router-link>
+                        <a class="small" href="#">Olvidaste tu contraseña?</a>
+                    </div>
         </div>
     </div>
-</div></template>
+</template>
 
 <script>
 export default {

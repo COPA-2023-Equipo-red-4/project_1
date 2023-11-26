@@ -9,11 +9,11 @@
     <div class="container text-center">
         <div class="row justify-content-evenly">
             <div class="col-4">
-                <button @mouseover="showImg()" @mouseleave="hideImg()" @click="QuieroAdoptar()"> QUIERO ADOPTAR </button>
+                <button id="boton_adoptar" @mouseover="showImg()" @mouseleave="hideImg()" @click="QuieroAdoptar()"> QUIERO ADOPTAR </button>
                 <img v-if="imgVisible" ref="../assets/envelope-fill.svg">
             </div>
             <div class="col-4">
-                <button class="donarSvg" @click="QuieroDonar()"> QUIERO DONAR </button>
+                <button id="boton_donar" class="donarSvg" @click="QuieroDonar()"> QUIERO DONAR </button>
             </div>
 
         </div>
@@ -58,11 +58,11 @@ body {
     padding: 0;
     scroll-behavior: smooth;
 }
-
 /* Añadir transición para el cambio suave */
 button,
 img {
     transition: opacity 0.3s ease-in-out;
+    
 }
 
 /* Ocultar el SVG por defecto */
@@ -79,16 +79,14 @@ h1 {
     text-align: center;
     margin-top: 30px;
     font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 2.5rem;
-    line-height: 2.5rem;
+    line-height: 2.9rem;
     letter-spacing: 0.4rem;
     -webkit-background-clip: text;
     background-clip: text;
     margin-bottom: 2.5rem;
+    text-transform: uppercase;
 
 }
-
-
 .principal {
     display: flex;
     justify-content: center;
@@ -148,8 +146,13 @@ button {
 
 }
 
-button:hover {
-    background-color: #0056b3;
+#boton_adoptar:hover {
+    background-color: #008fb3;
+}
+
+#boton_donar:hover {
+    background-color: #98b300;
+    color: #000;
 
 
     @media (min-width: 768px) {
@@ -207,6 +210,5 @@ button:hover {
         background-size: cover;
     }
 
-    }
-
+}
 </style>

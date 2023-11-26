@@ -1,6 +1,6 @@
 <template>
     <div class=" pt-5">
-        <form class="bg-white px-3 rounded flex">
+        <form class="px-3 rounded flex">
             <div class="d-flex flex-column justify-content-center mb-4  "> <img src="../assets/logo-no-bg.png"
                     alt="logo sin bg"> </div>
             <div class="mb-3">
@@ -20,9 +20,9 @@
 
             </div>
             <div class="d-grid gap-2 pb-5">
-                <button class="btn btn-primary text-white rounded-pill" type="button" id="buttonUser" @click="sendLogin">
+            <router-link to="/profile"><button class="btn btn-primary text-white rounded-pill" type="button" id="buttonUser" @click="sendLogin">
                     Inicia sesión
-                </button>
+                </button></router-link>
 
 
 
@@ -75,7 +75,7 @@ export default {
                     console.log('Response ', responseJson);
                     const store = this.$store;
                     store.commit('setUser', responseJson)
-                    this.$router.push('/profile');
+                    //this.$router.push('/profile');
                 })
                 .catch(error => console.error('Error:', error));
         },
@@ -112,7 +112,6 @@ a {
 
 #text-contrasena {
     margin-bottom: 0%;
-    margin-top: 20px;
 }
 
 #email {
