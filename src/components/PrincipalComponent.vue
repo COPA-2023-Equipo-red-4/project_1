@@ -9,8 +9,7 @@
     <div class="container text-center">
         <div class="row justify-content-evenly">
             <div class="col-4">
-                <button id="boton_adoptar" @mouseover="showImg()" @mouseleave="hideImg()" @click="QuieroAdoptar()"> QUIERO ADOPTAR </button>
-                <img v-if="imgVisible" ref="../assets/envelope-fill.svg">
+                <button id="boton_adoptar" @click="QuieroAdoptar()"> QUIERO ADOPTAR </button>
             </div>
             <div class="col-4">
                 <button id="boton_donar" class="donarSvg" @click="QuieroDonar()"> QUIERO DONAR </button>
@@ -26,22 +25,39 @@ export default {
 
     data() {
         return {
-            imgVisible: false,
+            usuarioAutenticado: false,
         }
+    },
+    computed: {
+        isAuthenticated() {
+            // Utiliza el getter para obtener el estado de autenticación
+            return this.$store.getters.isAuthenticated;
+        },
     },
 
     methods: {
         QuieroAdoptar() {
-            this.$router.push(`/pets`)
+            if (this.isAuthenticated === true) {
+                this.$router.push(`/pets`)
+            } else {
+                this.$swal({
+                    title: "Parece que no estas logueado",
+                    text: "Ingresa tus datos primero ",
+                    footer: '<a href="/login">Quiero loguearme</a>'
+                });
+            }
+
         },
         QuieroDonar() {
-            this.$router.push(`/PetRegister`)
-        },
-        showImg() {
-            this.imgVisible = true;
-        },
-        hideImg() {
-            this.imgVisible = false;
+            if (this.isAuthenticated === true) {
+                this.$router.push(`/PetRegister`)
+            } else {
+                this.$swal({
+                    title: "Parece que no estas logueado",
+                    text: "Ingresa tus datos primero ",
+                    footer: '<a href="/login">Quiero loguearme</a>'
+                });
+            }
         },
     }
 }
@@ -58,11 +74,12 @@ body {
     padding: 0;
     scroll-behavior: smooth;
 }
+
 /* Añadir transición para el cambio suave */
 button,
 img {
     transition: opacity 0.3s ease-in-out;
-    
+
 }
 
 /* Ocultar el SVG por defecto */
@@ -87,6 +104,7 @@ h1 {
     text-transform: uppercase;
 
 }
+
 .principal {
     display: flex;
     justify-content: center;
