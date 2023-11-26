@@ -178,7 +178,7 @@ export default {
             descripcion: '',
             observaciones: '',
             sexo: '',
-            tamanios: '',
+            id_tamanio: '',
             castrado: '',
             id_sociabilidad: '',
             fotos: [],
@@ -197,7 +197,7 @@ export default {
             formdata.append("descripcion", this.descripcion);
             formdata.append("observaciones", this.observaciones);
             formdata.append("sexo", this.sexo);
-            formdata.append("tamanios", this.tamanios);
+            formdata.append("id_tamanio", this.tamanios);
             formdata.append("castrado", this.castrado);
             formdata.append("id_sociabilidad", this.id_sociabilidad);
 
