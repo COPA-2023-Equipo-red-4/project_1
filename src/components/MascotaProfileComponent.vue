@@ -2,7 +2,6 @@
     <div>
         <section class="blue">
             <div class="container py-4">
-                <h1 class="h1 text-center" id="pageHeaderTitle">Saluden a ...</h1>
 
                 <article class="postcard green blue">
                     <a class="postcard__img_link" href="#">

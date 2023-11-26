@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home vh-100" >
         <NavBarComponent />
         <MascotaProfileComponent />
 
