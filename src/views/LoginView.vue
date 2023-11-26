@@ -1,16 +1,16 @@
 <template>
     <div class="home">
-            <NavBarComponent />
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 container">
-                        <LoginFormComponent />
-                    </div>
-                    <div class="col-md-6 container">
-                        <LoginIdeasComponent />
-                    </div>
+        <NavBarComponent />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 container">
+                    <LoginFormComponent />
+                </div>
+                <div class="col-md-6 container" id="login_ideas">
+                    <LoginIdeasComponent />
                 </div>
             </div>
+        </div>
     </div>
 </template>
 
@@ -24,7 +24,8 @@ export default {
         NavBarComponent,
         LoginFormComponent,
         LoginIdeasComponent
-    }
+    },
+    
 }
 </script>
 
@@ -45,5 +46,9 @@ export default {
     to {
         background-position: 200% center;
     }
+}
+
+#login_ideas {
+    margin-top: 50px;
 }
 </style>

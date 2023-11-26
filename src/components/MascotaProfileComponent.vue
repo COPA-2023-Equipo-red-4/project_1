@@ -6,7 +6,7 @@
 
                 <article class="postcard green blue">
                     <a class="postcard__img_link" href="#">
-                        <img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+                        <img class="postcard__img" src="https://rafalopez.ar/img/img_mascotas/gato.jpg" alt="Image Title" />
                     </a>
                     <div class="postcard__text">
                         <h1 class="postcard__title blue"><a href="#">Nombre del animal</a></h1>
@@ -27,6 +27,7 @@
                             <li class="tag__item play blue">
                                 <a href="#"><i class="fas fa-play mr-2"></i>Le gustan los niños</a>
                             </li>
+                            <button type="button" class="btn btn-primary btn-lg">Lo quiero!</button>
                         </ul>
                     </div>
                 </article>
@@ -42,15 +43,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
-$main-green: #79dd09 !default;
-$main-green-rgb-015: rgba(121, 221, 9, 0.1) !default;
-$main-yellow: #bdbb49 !default;
-$main-yellow-rgb-015: rgba(189, 187, 73, 0.1) !default;
-$main-red: #bd150b !default;
-$main-red-rgb-015: rgba(189, 21, 11, 0.1) !default;
-$main-blue: #0076bd !default;
-$main-blue-rgb-015: rgba(0, 118, 189, 0.1) !default;
+
 
 /* This pen */
 body {
@@ -95,17 +88,7 @@ a:hover {
     position: relative;
     color: #0a0a0a;
 
-    &.dark {
-        background-color: #18151f;
-    }
 
-    &.light {
-        background-color: #e1e5ea;
-    }
-
-    .t-dark {
-        color: #18151f;
-    }
 
     a {
         color: inherit;
@@ -127,7 +110,7 @@ a:hover {
     }
 
     .postcard__img {
-        max-height: 180px;
+        max-height: 120px;
         width: 100%;
         object-fit: cover;
         position: relative;
@@ -172,11 +155,12 @@ a:hover {
             display: inline-block;
             background: rgba(83, 83, 83, 0.4);
             border-radius: 3px;
-            padding: 2.5px 10px;
+            padding: 10px 10px;
             margin: 0 5px 5px 0;
             cursor: default;
             user-select: none;
             transition: background-color 0.3s;
+            text-align: center;
 
             &:hover {
                 background: rgba(209, 89, 89, 0.8);
@@ -386,5 +370,9 @@ a:hover {
     .blue:nth-child(2n)::before {
         background-image: linear-gradient(80deg, $main-blue-rgb-015, transparent 50%);
     }
+
+button {
+    margin-left: 150px;
+}
 
 }</style>
