@@ -2,15 +2,16 @@
     <div>
         <div class="home">
             <NavBarComponent />
-            <SelectPetsComponent></SelectPetsComponent>
-                <div class="row">
-                    <div class="col">
-                        <CardsComponent/>
-                    </div>
-
-                    </div>
+            <SelectPetsComponent v-model="especieSeleccionada" @filtrar-por-especie="filtrarPorEspecie">
+            </SelectPetsComponent>
+            <div class="row">
+                <div class="col">
+                    <CardsComponent :mascotas="mascotasFiltradas" />
                 </div>
+
             </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -24,12 +25,27 @@ export default {
         SelectPetsComponent,
         CardsComponent,
     },
-    
+    data() {
+        return {
+            especieSeleccionada: '', // Estado del filtro de especies
+            mascotas: [], // Lista completa de mascotas
+            mascotasFiltradas: [], // Lista de mascotas después de aplicar el filtro
+        };
+    },
+    methods: {
+        filtrarPorEspecie(especieSeleccionada) {
+            // Actualiza el estado del filtro
+            this.especieSeleccionada = especieSeleccionada;
+
+            // Filtra las mascotas según la especie seleccionada
+            this.mascotasFiltradas = this.mascotas.filter(mascota => mascota.especie === especieSeleccionada);
+        },
+    },
+
 }
 </script>
 
 <style scoped>
-
 .home {
     background-image: linear-gradient(90deg,
             #125a3c 0%,

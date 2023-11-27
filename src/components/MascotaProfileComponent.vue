@@ -1,30 +1,24 @@
 <template>
     <div>
         <section class="blue">
-            <div class="container py-4">
+            <div class="container py-4" v-if="mascota" :key="mascota.id">
 
                 <article class="postcard green blue">
-                    <a class="postcard__img_link" href="#">
-                        <img class="postcard__img" src="https://rafalopez.ar/img/img_mascotas/gato.jpg" alt="Image Title" />
-                    </a>
+                        <img class="postcard__img" :src="`https://rafalopez.ar/img/img_mascotas/${mascota[0].foto1}`" alt="Image Title" />
                     <div class="postcard__text">
-                        <h1 class="postcard__title blue"><a href="#">Nombre del animal</a></h1>
+                        <h1 class="postcard__title blue">{{ mascota[0].nombre }}</h1>
                         <div class="postcard__subtitle small">
                             <time datetime="2020-05-25 12:00:00">
-                                <i class="fas fa-calendar-alt mr-2"></i>Fecha de nacimiento
+                                <i class="fas fa-calendar-alt mr-2"></i>{{ "la mascota nació en: " + mascota[0].fecha_nacimiento }}
                             </time>
                         </div>
                         <div class="postcard__bar"></div>
-                        <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus
-                            eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat
-                            vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis
-                            enim quidem excepturi, illum quos!</div>
+                        <div class="postcard__preview-txt">{{ mascota[0].descripcion }}</div>
                         <ul class="postcard__tagbox">
-                            <li class="tag__item"><i class="fas fa-tag mr-2"></i>Sociable</li>
-                            <li class="tag__item"><i class="fas fa-clock mr-2"></i>Desparasitado</li>
+                            <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{ mascota[0].sociabilidad }}</li>
+                            <li class="tag__item"><i class="fas fa-clock mr-2"></i>{{ mascota[0].castrado === 0 ? 'Castrado' : 'No Castrado' }}</li>
                             <li class="tag__item play blue">
-                                <a href="#"><i class="fas fa-play mr-2"></i>Le gustan los niños</a>
+                            <i class="fas fa-play mr-2"></i>{{ mascota[0].sexo === M ? 'Hembra' : 'Macho' }}
                             </li>
                             <button type="button" class="btn btn-primary btn-lg">Lo quiero!</button>
                         </ul>
@@ -38,14 +32,46 @@
 <script>
 export default {
     name: 'MascotaProfileComponent',
+    data() {
+        return {
+            mascota: null,
+        };
+    },
+    mounted() {
 
+        this.getDetalleMascota();
+    },
+
+    methods: {
+        getDetalleMascota() {
+            const mascotaId = this.$route.params.id;
+
+            if (mascotaId) {
+                const requestOptions = {
+                    method: 'GET',
+                    credentials: 'include',
+                    redirect: 'follow',
+                    mode: 'cors'
+                };
+                fetch(`https://rafalopez.ar/v1/mascota/get/${mascotaId}`, requestOptions)
+                    .then(response => {
+                        // Imprimir las cookies de la respuesta
+                        console.log(response);
+                        return response.json();
+                    })
+                    .then(data => {
+                        this.mascota = data
+                        console.log(data);
+                    })
+                    .catch(error => console.log("Error al obtener mascota con ID", error));
+            }
+        }
+    }
 
 };
 </script>
 
 <style scoped>
-
-
 /* This pen */
 body {
     font-family: "Baloo 2", cursive;
@@ -56,13 +82,9 @@ body {
 }
 
 .green {
-    background: rgb(196, 177, 11);
+    background: rgb(93, 158, 18);
 }
 
-
-.light {
-    background: #f3f5f7;
-}
 
 a,
 a:hover {
@@ -95,13 +117,6 @@ a:hover {
         color: inherit;
     }
 
-    h1,
-    .h1 {
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        line-height: 1.2;
-    }
-
     .small {
         font-size: 80%;
     }
@@ -117,9 +132,6 @@ a:hover {
         position: relative;
     }
 
-    .postcard__img_link {
-        display: contents;
-    }
 
     .postcard__bar {
         width: 50px;
@@ -154,7 +166,7 @@ a:hover {
 
         .tag__item {
             display: inline-block;
-            background: rgba(83, 83, 83, 0.4);
+            background: rgba(134, 40, 40, 0.4);
             border-radius: 3px;
             padding: 10px 10px;
             margin: 0 5px 5px 0;
@@ -176,7 +188,7 @@ a:hover {
         right: 0;
         bottom: 0;
         left: 0;
-        background-image: linear-gradient(-70deg, #424242, transparent 50%);
+        background-image: linear-gradient(-70deg, #b8acac, transparent 50%);
         opacity: 1;
         border-radius: 10px;
     }
@@ -372,8 +384,9 @@ a:hover {
         background-image: linear-gradient(80deg, $main-blue-rgb-015, transparent 50%);
     }
 
-button {
-    margin-left: 150px;
-}
+    button {
+        margin-left: 150px;
+    }
 
-}</style>
+}
+</style>

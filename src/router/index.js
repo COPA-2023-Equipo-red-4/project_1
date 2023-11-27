@@ -52,7 +52,7 @@ const routes = [
     component: ProfiledetailView,
   },
   {
-    path: "/MascotaProfile",
+    path: "/MascotaProfile/:id",
     name: "MascotaProfile",
     component: MascotaDetailView,
   },
