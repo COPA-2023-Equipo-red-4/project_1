@@ -1,16 +1,14 @@
 <template>
   <div class="container mx-auto mt-4">
     <div class="flex row">
-      <div class="row-md-6">
+      <div class="row-md-6" v-for="mascota in mascotas" :key="mascota.id">
         <div class="card">
-          <img :src="imagenMascota" class="card-img-top" alt="...">
+          <img src="/" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Nombre</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Especie</h6>
-            <p class="card-text">Esta es una mascota que seguramente todos querrian tener.</p>
-            <a class="btn mr-2" href="#">
-              <router-link to="/MascotaProfile">Ver más</router-link>
-            </a>
+            <h5 class="card-title">nombre</h5>
+            <h6 class="card-subtitle mb-2">raza</h6>
+            <p class="card-text">descripcion</p>
+            <router-link :to="'/MascotaProfile/' + mascota.id" class="btn mr-2"> Ver mas</router-link>
           </div>
         </div>
       </div>
@@ -22,18 +20,17 @@
 export default {
   name: "CardsComponent",
 
-  data() {
-    return {
-      // Utiliza la URL de la imagen proporcionada
-      imagenMascota: 'https://rafalopez.ar/img/img_mascotas/gato.jpg',
-      // Otras propiedades de tu componente...
-    };
-  },
-  methods: {
+  props: {
+    mascota: {
+      type: Object,
 
+      methods: {
+
+      }
+
+    }
   }
-
-};
+}
 </script>
 
 <style scoped>

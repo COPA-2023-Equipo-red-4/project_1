@@ -38,6 +38,8 @@
 <script>
 export default {
     name: 'MascotaProfileComponent',
+
+
 };
 </script>
 

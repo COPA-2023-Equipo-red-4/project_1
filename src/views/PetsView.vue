@@ -3,25 +3,14 @@
         <div class="home">
             <NavBarComponent />
             <SelectPetsComponent></SelectPetsComponent>
-
-            <div v-for="(card, index) in cards" :key="index">
                 <div class="row">
                     <div class="col">
-                        <CardsComponent />
+                        <CardsComponent v-for="mascota in mascotas" :key="mascota.id" :mascota="mascota"/>
                     </div>
-                    <div class="col">
-                        <CardsComponent />
-                    </div>
-                    <div class="col">
-                        <CardsComponent />
-                    </div>
-                    <div class="col">
-                        <CardsComponent />
+
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -37,14 +26,35 @@ export default {
     },
     data() {
         return {
-            cards: [
-                { title: "Tarjeta 1", description: "Descripción de la Tarjeta 1" },
-                { title: "Tarjeta 2", description: "Descripción de la Tarjeta 2" },
-                { title: "Tarjeta 3", description: "Descripción de la Tarjeta 3" },
-                // Agrega más datos de tarjetas según sea necesario
-            ],
+            mascotas: [],
         };
     },
+    mounted() {
+        // Iniciar el bucle para obtener mascotas con diferentes IDs
+        this.getMascotas();
+        },
+
+    methods: {
+        getMascotas(id) {
+            const requestOptions = {
+                method: 'GET',
+                credentials: 'include',
+                redirect: 'follow',
+                mode: 'cors'
+            };
+            fetch(`https://rafalopez.ar/v1/mascota/get/${id}`, requestOptions)
+                .then(response => {
+                    // Imprimir las cookies de la respuesta
+                    console.log(response);
+                    return response.json();
+                })
+                .then(data => {
+                    this.mascotas = data
+                    console.log(data)
+                })
+                .catch(error => console.log(`Error al obtener mascota con ID ${id}:`, error));
+        },
+    }
 }
 </script>
 
