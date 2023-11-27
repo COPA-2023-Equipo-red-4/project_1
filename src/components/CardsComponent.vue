@@ -3,12 +3,12 @@
     <div class="flex row">
       <div class="row-md-6" v-for="mascota in mascotas" :key="mascota.id">
         <div class="card">
-          <img src="/" class="card-img-top" alt="...">
+          <img :src="mascota.foto1" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{ mascota.nombre }}</h5>
             <h6 class="card-subtitle mb-2">{{ mascota.raza }}</h6>
             <p class="card-text">{{ mascota.descripcion }}</p>
-            <router-link :to="'https://rafalopez.ar/v1/mascota/get/' + mascotas.id" class="btn mr-2"> Ver mas</router-link>
+            <router-link :to="'/MascotaProfile/' + mascota.id" class="btn mr-2"> Ver mas</router-link>
           </div>
         </div>
       </div>
