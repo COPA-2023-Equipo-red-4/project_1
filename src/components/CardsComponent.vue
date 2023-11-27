@@ -5,10 +5,10 @@
         <div class="card">
           <img src="/" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">nombre</h5>
-            <h6 class="card-subtitle mb-2">raza</h6>
-            <p class="card-text">descripcion</p>
-            <router-link :to="'/MascotaProfile/' + mascota.id" class="btn mr-2"> Ver mas</router-link>
+            <h5 class="card-title">{{ mascota.nombre }}</h5>
+            <h6 class="card-subtitle mb-2">{{ mascota.raza }}</h6>
+            <p class="card-text">{{ mascota.descripcion }}</p>
+            <router-link :to="'https://rafalopez.ar/v1/mascota/get/' + mascotas.id" class="btn mr-2"> Ver mas</router-link>
           </div>
         </div>
       </div>
@@ -20,16 +20,36 @@
 export default {
   name: "CardsComponent",
 
-  props: {
-    mascota: {
-      type: Object,
+  data() {
+        return {
+            mascotas: [],
+        };
+    },
+    mounted() {
 
-      methods: {
+          this.getMascotas();
+        },
 
-      }
-
+    methods: {
+        getMascotas() {
+            const requestOptions = {
+                method: 'GET',
+                credentials: 'include',
+                redirect: 'follow',
+                mode: 'cors'
+            };
+            fetch(`https://rafalopez.ar/v1/mascota/list`, requestOptions)
+                .then(response => {
+                    // Imprimir las cookies de la respuesta
+                    console.log(response);
+                    return response.json();
+                })
+                .then(data => {
+                    this.mascotas = data
+                })
+                .catch(error => console.log("Error al obtener mascota con ID", error));
+        },
     }
-  }
 }
 </script>
 

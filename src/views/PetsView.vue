@@ -5,7 +5,7 @@
             <SelectPetsComponent></SelectPetsComponent>
                 <div class="row">
                     <div class="col">
-                        <CardsComponent v-for="mascota in mascotas" :key="mascota.id" :mascota="mascota"/>
+                        <CardsComponent/>
                     </div>
 
                     </div>
@@ -24,37 +24,7 @@ export default {
         SelectPetsComponent,
         CardsComponent,
     },
-    data() {
-        return {
-            mascotas: [],
-        };
-    },
-    mounted() {
-        // Iniciar el bucle para obtener mascotas con diferentes IDs
-        this.getMascotas();
-        },
-
-    methods: {
-        getMascotas(id) {
-            const requestOptions = {
-                method: 'GET',
-                credentials: 'include',
-                redirect: 'follow',
-                mode: 'cors'
-            };
-            fetch(`https://rafalopez.ar/v1/mascota/get/${id}`, requestOptions)
-                .then(response => {
-                    // Imprimir las cookies de la respuesta
-                    console.log(response);
-                    return response.json();
-                })
-                .then(data => {
-                    this.mascotas = data
-                    console.log(data)
-                })
-                .catch(error => console.log(`Error al obtener mascota con ID ${id}:`, error));
-        },
-    }
+    
 }
 </script>
 
